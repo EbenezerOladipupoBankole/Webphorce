@@ -24,13 +24,13 @@
   --rich-black-fogra-29-2: hsl(230, 14%, 8%);
   --rich-black-fogra-39: hsl(158, 29%, 5%);
   --granite-gray: hsl(0, 0%, 40%);
-  --go-green_50: hsla(49, 68%, 41%, 0.5);
-  --go-green_8: hsla(145, 63%, 42%, 0.08);
-  --go-green_5: hsla(145, 63%, 42%, 0.05);
+  --go-white_50: hsla(49, 68%, 41%, 0.5);
+  --go-white_8: hsla(145, 63%, 42%, 0.08);
+  --go-white_5: hsla(145, 63%, 42%, 0.05);
   --light-gray: hsl(0, 0%, 80%);
-  --mint-cream: hsl(160, 100%, 98%);
-  --cultured: hsl(0, 0%, 93%);
-  --go-green: hsl(19, 68%, 47%);
+  /* --mint-cream: hsl(160, 16%, 89%); */
+  --cultured: hsl(0, 0%, 100%);
+  --go-white: hsl(207, 67%, 45%);
   --white: hsl(0, 0%, 100%);
   --jet: hsl(0, 0%, 18%);
 
@@ -116,7 +116,10 @@ input,
 button,
 ion-icon { display: block; }
 
-img { height: auto; }
+img {
+   height: auto;
+   width: 150px;;
+   }
 
 input,
 button {
@@ -221,7 +224,7 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--go-green);
+  background-color: var(--go-white);
   color: var(--white);
 }
 
@@ -249,7 +252,7 @@ body {
 .text-center { text-align: center; }
 
 .section-subtitle {
-  color: var(--go-green);
+  color: var(--go-white);
   font-weight: var(--fw-500);
 }
 
@@ -299,10 +302,7 @@ body {
 }
 
 .logo {
-  color: var(--rich-black-fogra-29-1);
-  font-family: var(--ff-cuprum);
-  font-size: 33px;
-  font-weight: var(--fw-500);
+  width: px;
   line-height: 1;
 }
 
@@ -349,12 +349,12 @@ body {
   transition: var(--transition-1);
 }
 
-.navbar-link:is(:hover, :focus) { color: var(--go-green); }
+.navbar-link:is(:hover, :focus) { color: var(--go-white); }
 
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: hsla(0, 0%, 100%, 0.7);
+  background-color: hsla(0, 32%, 28%, 0.7);
   visibility: hidden;
   opacity: 0;
   transition: var(--transition-1);
@@ -387,7 +387,7 @@ body {
 }
 
 .hero-subtitle {
-  color: var(--go-green);
+  color: var(--go-white);
   font-size: var(--fs-12);
   font-weight: var(--fw-500);
   max-width: max-content;
@@ -400,7 +400,7 @@ body {
   left: -20px;
   width: 15px;
   height: 2px;
-  background-color: var(--go-green);
+  background-color: var(--go-white);
 }
 
 .hero-title { margin-block: 10px 15px; }
@@ -410,7 +410,7 @@ body {
 .hero .btn-group { margin-block-start: 40px; }
 
 .hero .btn-icon {
-  background-color: var(--go-green);
+  background-color: var(--go-white);
   color: var(--white);
   font-size: 20px;
   padding: 20px;
@@ -419,12 +419,12 @@ body {
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 var(--go-green); }
+  0% { box-shadow: 0 0 0 0 var(--go-white); }
   100% { box-shadow: 0 0 0 20px transparent; }
 }
 
 .hero .flex-btn .span {
-  color: var(--go-green);
+  color: var(--go-white);
   font-size: var(--fs-9);
   font-weight: var(--fw-600);
 }
@@ -438,7 +438,7 @@ body {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background-image: url('../images/hero-pattern.svg');
+  background-image: url('../images/');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -480,7 +480,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: var(--go-green);
+  background-color: var(--go-white);
 }
 
 .about .btn-group { justify-content: flex-start; }
@@ -488,12 +488,12 @@ body {
 .about .btn-group .flex-btn { gap: 10px; }
 
 .about .btn-icon ion-icon {
-  color: var(--go-green);
+  color: var(--go-white);
   font-size: 40px;
 }
 
 .about .btn-group .span {
-  color: var(--go-green);
+  color: var(--go-white);
   font-family: var(--ff-cuprum);
   font-size: var(--fs-6);
   font-weight: var(--fw-600);
@@ -523,7 +523,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--go-green);
+  background-color: var(--go-white);
   transition: var(--transition-2);
 }
 
@@ -563,7 +563,7 @@ body {
   transition: var(--transition-2);
 }
 
-.features-card:hover { background-color: var(--go-green); }
+.features-card:hover { background-color: var(--go-white); }
 
 .features-card .card-number {
   position: absolute;
@@ -580,7 +580,7 @@ body {
   transition: var(--transition-1);
 }
 
-.features-card:hover .card-number { color: var(--go-green); }
+.features-card:hover .card-number { color: var(--go-white); }
 
 .features-card .card-title {
   font-size: var(--fs-6);
@@ -616,13 +616,13 @@ body {
 }
 
 .faq-card {
-  background-color: var(--go-green_5);
+  background-color: var(--go-white_5);
   border-radius: var(--radius-5);
   overflow: hidden;
 }
 
 .faq-card .card-action {
-  --action-bg: var(--go-green_8);
+  --action-bg: var(--go-white_8);
   --color: var(--granite-gray);
 
   background-color: var(--action-bg);
@@ -637,7 +637,7 @@ body {
 }
 
 .faq-card .card-action:is(:hover, :focus, .active) {
-  --action-bg: var(--go-green);
+  --action-bg: var(--go-white);
   --color: var(--white);
 }
 
@@ -708,7 +708,7 @@ body {
 }
 
 .footer .form-btn {
-  background-color: var(--go-green);
+  background-color: var(--go-white);
   color: var(--white);
   font-size: 24px;
   position: absolute;
@@ -732,7 +732,7 @@ body {
   transition: var(--transition-1);
 }
 
-.footer-link:is(:hover, :focus) { color: var(--go-green); }
+.footer-link:is(:hover, :focus) { color: var(--go-white); }
 
 .footer-item,
 .social-list {
@@ -745,14 +745,14 @@ body {
 
 .footer-item > ion-icon {
   flex-shrink: 0;
-  color: var(--go-green);
+  color: var(--go-white);
   font-size: 20px;
   margin-block-start: 3px;
 }
 
 .contact-link { transition: var(--transition-1); }
 
-.contact-link:not(.address):is(:hover, :focus) { color: var(--go-green); }
+.contact-link:not(.address):is(:hover, :focus) { color: var(--go-white); }
 
 .footer-item:last-child {
   margin-block-start: 25px;
@@ -768,8 +768,8 @@ body {
 }
 
 .social-link:is(:hover, :focus) {
-  background-color: var(--go-green);
-  border-color: var(--go-green);
+  background-color: var(--go-white);
+  border-color: var(--go-white);
 }
 
 .footer-bottom {
@@ -785,7 +785,7 @@ body {
 
 .copyright-link {
   display: inline-block;
-  color: var(--go-green);
+  color: var(--go-white);
   font-weight: var(--fw-500);
 }
 
@@ -800,7 +800,7 @@ body {
   transition: var(--transition-1);
 }
 
-.footer-bottom-link:is(:hover, :focus) { color: var(--go-green); }
+.footer-bottom-link:is(:hover, :focus) { color: var(--go-white); }
 
 
 
@@ -979,16 +979,16 @@ body {
 
   .header .btn-outline {
     display: block;
-    color: var(--go-green);
+    color: var(--go-white);
     font-weight: var(--fw-600);
     text-transform: uppercase;
-    border: 1px solid var(--go-green);
+    border: 1px solid var(--go-white);
     padding: 7px 18px;
     transition: var(--transition-1);
   }
 
   .header .btn-outline:is(:hover, :focus) {
-    background-color: var(--go-green);
+    background-color: var(--go-white);
     color: var(--white);
   }
 
