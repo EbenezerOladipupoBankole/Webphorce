@@ -66,47 +66,6 @@ nav {
     color: #ff9933;
 }
 
-/* Hamburger Menu */
-.nav-toggle {
-    display: none; /* Hidden by default, shown on mobile */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001; /* Above nav-links when open */
-}
-
-.nav-toggle:focus {
-    outline: 2px solid #0a2540;
-    outline-offset: 3px;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: #0a2540;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-toggle.active span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-}
-
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-}
-
-
 /* Hero Section */
 .hero {
     background-color: #0a2540; /* Fallback color */
@@ -531,32 +490,9 @@ footer {
         font-size: 2.5rem;
     }
 
-    .nav-toggle {
-        display: flex; /* Show hamburger on mobile */
-    }
-
     .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 1000;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
-    .nav-links a {
-        font-size: 1.8rem;
+        gap: 1rem;
+        font-size: 0.9rem;
     }
 
     .section-title {
