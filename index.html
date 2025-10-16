@@ -1,846 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Web Phorce - Leading Digital Marketing Agency">
-  <meta name="keywords" content="Web Phorce, Digital Marketing, SEO, Social Media Marketing, Web Development, App Development, Graphic Design">
-  <meta name="og:title" content="Web Phorce - Leading Digital Marketing Agency">
-  <meta name="og:description" content="We help businesses increase online visibility, drive qualified traffic, and boost conversions through proven SEO strategies, targeted PPC campaigns, and data-driven social media marketing.">
-  <title>Web Phorce - Bringing Ideas To Life</title>
-
- <link rel="icon" type="image/png" href="assets/images/wplogo.png" width="300px">
- <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- 
-
-    - custom css link
-  -->
-  <!-- <link rel="icon" href="./assets/css/style.css"> -->
-  
-
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cuprum:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap"
-    rel="stylesheet">
-
-  <!-- 
-    - preload images
-  -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webphorce - Transform Your Digital Presence</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- 
-    - #HEADER
-  -->
-
-  <header class="header" data-header>
-    <div class="container">
-  <img src="assets/images/wplogo.png" alt="" width="100">
-      <!-- <a href="#" class="logo">Web Phorce</a> -->
-
-      <nav class="navbar" data-navbar>
-
-        <div class="wrapper">
-          <img src="assets/images/wplogo.png" alt="">
-          <!-- <a href="#" class="logo">Web Phorce</a> -->
-
-          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-          </button>
-        </div>
-
-        <ul class="navbar-list">
-
-          <li>
-            <a href="#home" class="navbar-link" data-nav-link>Home</a>
-          </li>
-
-          <li>
-            <a href="#about" class="navbar-link" data-nav-link>About</a>
-          </li>
-
-          <li>
-            <a href="#services" class="navbar-link" data-nav-link>Services</a>
-          </li>
-
-          <!-- <li>
-            <a href="#features" class="navbar-link" data-nav-link>Features</a>
-          </li> -->
-
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Blog</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-      </button>
-
-      <a href="#" class="btn-outline">Lets talk</a>
-
-      <div class="overlay" data-nav-toggler data-overlay></div>
-
-    </div>
-  </header>
-
-
-
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #HERO
-      -->
-
-      <section class="section hero" id="home" aria-label="hero">
-        <div class="container">
-
-          <div class="hero-content">
-
-            <p class="hero-subtitle has-before">Leading Digital Marketing Agency</p>
-
-            <h1 class="h1 hero-title">Grow Your Business with Expert Digital Marketing Services.</h1>
-
-            <p class="hero-text">
-            We help businesses increase online visibility, drive qualified traffic, and boost conversions through proven SEO strategies, targeted PPC campaigns, and data-driven social media marketing. 
-            Transform your digital presence and outrank competitors with our results-focused approach..
-            </p>
-
-            <div class="btn-group">
-              <a href="#" class="btn btn-primary">Explore</a>
-
-              <button class="flex-btn">
-                <div class="btn-icon">
-                  <ion-icon name="play" aria-hidden="true"></ion-icon>
-                </div>
-
-                <span class="span">How it works</span>
-              </button>
+    <header>
+        <nav>
+            <div class="logo">
+              <img src="/webphorce/image.png" alt="Webphorce Logo" class="logo-img">
+                <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650'%3E%3Crect width='1000' height='650' fill='%23f5f5f5'/%3E%3Ccircle cx='200' cy='325' r='140' fill='none' stroke='%230a2540' stroke-width='20'/%3E%3Ctext x='150' y='360' font-family='Arial, sans-serif' font-size='160' font-weight='bold' fill='%230a2540'%3EW%3C/text%3E%3Ctext x='200' y='360' font-family='Arial, sans-serif' font-size='160' font-weight='bold' fill='%23ff9933'%3EP%3C/text%3E%3Ctext x='380' y='360' font-family='Arial, sans-serif' font-size='120' font-weight='bold' fill='%230a2540'%3EWEBPHORCE%3C/text%3E%3C/svg%3E" alt="Webphorce Logo" class="logo-img"> -->
             </div>
-
-          </div>
-
-          <figure class="hero-banner has-before img-holder" style="--width: 650; --height: 650;">
-            <img src="./assets/image" width="650" height="650" alt="hero banner" class="img-cover">
-          </figure>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #ABOUT
-      -->
-
-      <section class="section about" id="about" aria-label="about">
-        <div class="container">
-
-          <figure class="about-banner">
-            <img src="./assets/images/" width="802" height="654" loading="lazy" alt="about banner"
-              class="w-100">
-          </figure>
-
-          <div class="about-content">
-
-            <h2 class="h2-sm section-title">We create some things, Design for your success future.</h2>
-
-            <p class="section-text">
-              Lorem Ipsum is simply dumm of free available in market the way printing and typesetting industry has been
-              the industrys
-              standard dummy text ever.
-            </p>
-
-            <ul class="about-list">
-
-              <li class="has-before">
-                Price of additional materials or parts (if needed)
-              </li>
-
-              <li class="has-before">
-                Transportation cost for carrying new materials/parts
-              </li>
-
-              <li class="has-before">
-                You will get 100% money back offer.
-              </li>
-
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-
-            <div class="btn-group">
-              <a href="#" class="btn btn-primary">Know More</a>
-
-              <button class="flex-btn">
-                <div class="btn-icon">
-                  <ion-icon name="medal-outline" aria-hidden="true"></ion-icon>
-                </div>
-
-                <span class="span">10+ Years Experience</span>
-              </button>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #SERVICE
-      -->
-
-      <section class="section service" id="services" aria-label="service">
-        <div class="container">
-
-          <p class="section-subtitle text-center">-What We Offer-</p>
-
-          <h2 class="h2 section-title text-center">Our Creative Services</h2>
-
-          <p class="section-text text-center">
-          At Webphorce, we specialize in helping you build a powerful and engaging online presence. 
-          From crafting visually appealing designs to creating compelling content and intuitive digital experiences, 
-          our services are designed to strengthen your brand’s visibility and connect you with your audience in the digital space.
-          </p>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="service-card has-after">
-
-                <figure class="card-icon">
-                  <img src="./assets/images/service-1.png" width="140" height="140" loading="lazy"
-                    alt="UI/UX Creative Design" class="img">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Social Media Marketing</h3>
-
-                  <p class="card-text">
-                   Grow your online presence with Webphorce’s strategic social media marketing services.
-                    We create tailored campaigns that boost your brand’s reach, engage your audience,
-                     and drive meaningful interactions across popular platforms. From content creation to analytics, 
-                     we help you turn followers into loyal customers.
-
-
-
-                  <a href="#" class="btn-link">
-                    <span class="span">Read More</span>
-
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card has-after">
-
-                <figure class="card-icon">
-                  <img src="./assets/images/service-2.png" width="140" height="140" loading="lazy" alt="App Development"
-                    class="img">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Web & App Development</h3>
-
-                  <p class="card-text">
-                   Bring your app idea to life with Webphorce! From initial concept to final launch, we build scalable, 
-                   high-performance Web and apps that meet your goals and connect with users. 
-                   Our agile development approach ensures your app stays ahead in the competitive digital landscape.
-                  </p>
-
-                  <a href="#" class="btn-link">
-                    <span class="span">Read More</span>
-
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card has-after">
-
-                <figure class="card-icon">
-                  <img src="./assets/images/service-3.png" width="140" height="140" loading="lazy"
-                    alt="Professional Content Writer" class="img">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Professional Content Writer</h3>
-
-                  <p class="card-text">
-                    Words matter, Right? Our team of skilled content writers helps your brand stand out with compelling,
-                     SEO-friendly copy that captures your voice and drives conversions.
-                     From web copy to blogs, we’ve got you covered.
-                  </p>
-
-                  <a href="#" class="btn-link">
-                    <span class="span">Read More</span>
-
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card has-after">
-
-                <figure class="card-icon">
-                  <img src="./assets/images/service-4.png" width="140" height="140" loading="lazy" alt="Graphic Design"
-                    class="img">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Graphic Design</h3>
-
-                  <p class="card-text">
-                    Visuals speak volumes. 
-                    Webphorce’s graphic design services combine creativity and strategy to craft eye-catching designs that resonate with your audience.
-                     From logos to marketing materials, we create visuals that leave a lasting impression.
-                  </p>
-
-                  <a href="#" class="btn-link">
-                    <span class="span">Read More</span>
-
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-          <a href="#" class="btn btn-primary">Get Started</a>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #FEATURES
-      -->
-
-      <section class="section features" id="features" aria-label="features">
-        <div class="container">
-
-          <p class="section-subtitle text-center">-Why Choose Us-</p>
-
-          <h2 class="h2 section-title text-center">Reasons to Choose Us</h2>
-
-          <p class="section-text text-center">
-            Get the most of reduction in your team’s operating costs for the whole product which creates amazing UI/UX
-            experiences.
-          </p>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="features-card">
-
-                <data class="card-number" value="01">01</data>
-
-                <h3 class="h3 card-title">Free Icon Plugin</h3>
-
-                <p class="card-text">
-                  Nullam ullamcorper condimentum urna eu accumsan.
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="features-card">
-
-                <data class="card-number" value="02">02</data>
-
-                <h3 class="h3 card-title">Free 6 Month Support</h3>
-
-                <p class="card-text">
-                  Nullam ullamcorper condimentum urna eu accumsan.
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="features-card">
-
-                <data class="card-number" value="03">03</data>
-
-                <h3 class="h3 card-title">Customer Strategy</h3>
-
-                <p class="card-text">
-                  Nullam ullamcorper condimentum urna eu accumsan.
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="features-card">
-
-                <data class="card-number" value="04">04</data>
-
-                <h3 class="h3 card-title">Best Premimum Image</h3>
-
-                <p class="card-text">
-                  Nullam ullamcorper condimentum urna eu accumsan.
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="features-card">
-
-                <data class="card-number" value="05">05</data>
-
-                <h3 class="h3 card-title">Most Advanced Features</h3>
-
-                <p class="card-text">
-                  Nullam ullamcorper condimentum urna eu accumsan.
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="features-card">
-
-                <data class="card-number" value="06">06</data>
-
-                <h3 class="h3 card-title">Very Reasonable Price</h3>
-
-                <p class="card-text">
-                  Nullam ullamcorper condimentum urna eu accumsan.
-                </p>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #FAQ
-      -->
-
-      <section class="section faq" aria-label="frequently asked questions">
-        <div class="container">
-
-          <div class="title-wrapper">
-            <h2 class="h2 section-title">Discover Frequently Asked Questions?</h2>
-
-            <a href="#" class="btn btn-primary">Work Together</a>
-          </div>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="faq-card">
-
-                <button class="card-action" data-accordion-action>
-                  <h3 class="h3 card-title">
-                    01.  Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                  </h3>
-
-                  <div class="action-icon">
-                    <ion-icon name="add-outline" aria-hidden="true" class="open"></ion-icon>
-                    <ion-icon name="remove-outline" aria-hidden="true" class="close"></ion-icon>
-                  </div>
-                </button>
-
-                <div class="card-content">
-                  <p>
-                    Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                    posuere semper, libero ex
-                    hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit
-                    amet condimentum
-                    erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in
-                    luctus. Nullam
-                    tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet.
-                    Sed varius, diam
-                    vitae posuere semper.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="faq-card">
-
-                <button class="card-action" data-accordion-action>
-                  <h3 class="h3 card-title">
-                    02.  Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                  </h3>
-
-                  <div class="action-icon">
-                    <ion-icon name="add-outline" aria-hidden="true" class="open"></ion-icon>
-                    <ion-icon name="remove-outline" aria-hidden="true" class="close"></ion-icon>
-                  </div>
-                </button>
-
-                <div class="card-content">
-                  <p>
-                    Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                    posuere semper, libero ex
-                    hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit
-                    amet condimentum
-                    erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in
-                    luctus. Nullam
-                    tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet.
-                    Sed varius, diam
-                    vitae posuere semper.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="faq-card">
-
-                <button class="card-action" data-accordion-action>
-                  <h3 class="h3 card-title">
-                    03.  Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                  </h3>
-
-                  <div class="action-icon">
-                    <ion-icon name="add-outline" aria-hidden="true" class="open"></ion-icon>
-                    <ion-icon name="remove-outline" aria-hidden="true" class="close"></ion-icon>
-                  </div>
-                </button>
-
-                <div class="card-content">
-                  <p>
-                    Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                    posuere semper, libero ex
-                    hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit
-                    amet condimentum
-                    erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in
-                    luctus. Nullam
-                    tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet.
-                    Sed varius, diam
-                    vitae posuere semper.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="faq-card">
-
-                <button class="card-action" data-accordion-action>
-                  <h3 class="h3 card-title">
-                    04.  Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                  </h3>
-
-                  <div class="action-icon">
-                    <ion-icon name="add-outline" aria-hidden="true" class="open"></ion-icon>
-                    <ion-icon name="remove-outline" aria-hidden="true" class="close"></ion-icon>
-                  </div>
-                </button>
-
-                <div class="card-content">
-                  <p>
-                    Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                    posuere semper, libero ex
-                    hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit
-                    amet condimentum
-                    erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in
-                    luctus. Nullam
-                    tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet.
-                    Sed varius, diam
-                    vitae posuere semper.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="faq-card">
-
-                <button class="card-action" data-accordion-action>
-                  <h3 class="h3 card-title">
-                    05.  Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                  </h3>
-
-                  <div class="action-icon">
-                    <ion-icon name="add-outline" aria-hidden="true" class="open"></ion-icon>
-                    <ion-icon name="remove-outline" aria-hidden="true" class="close"></ion-icon>
-                  </div>
-                </button>
-
-                <div class="card-content">
-                  <p>
-                    Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae
-                    posuere semper, libero ex
-                    hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit
-                    amet condimentum
-                    erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in
-                    luctus. Nullam
-                    tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet.
-                    Sed varius, diam
-                    vitae posuere semper.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-    </article>
-  </main>
-
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
-  <footer class="footer">
-
-    <div class="footer-top section">
-      <div class="container">
-
-        <div class="footer-brand">
-
-          <a href="#" class="logo">Web Phorce</a>
-
-          <p class="footer-text">
-            Lorem ipsum dolor sit amet consecte tur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-          </p>
-
-          <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Enter your email" required class="email-field">
-
-            <button type="submit" class="form-btn">
-              <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
+            <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-          </form>
+        </nav>
+    </header>
 
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Digital Presence</h1>
+            <p>We combine creativity, technology, and data-driven strategies to deliver solutions that drive measurable results</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
         </div>
+    </section>
 
-        <ul class="footer-list">
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>We create stunning, high-performance websites tailored to your business needs. From responsive designs to complex web applications, we build digital experiences that captivate your audience and drive conversions. Our development process ensures fast loading times, seamless navigation, and mobile optimization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Amplify your brand's voice across all major platforms. We develop data-driven social media strategies that increase engagement, build communities, and convert followers into customers. From content creation to paid advertising campaigns, we handle everything to maximize your social ROI.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Content Writing</h3>
+                    <p>Words that sell, stories that connect. Our expert writers craft SEO-optimized content that ranks well on search engines while resonating with your target audience. From blog posts and website copy to email campaigns and product descriptions, we deliver compelling content that drives results.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI & ML Solutions</h3>
+                    <p>Stay ahead of the competition with intelligent automation and predictive analytics. We integrate cutting-edge AI and machine learning technologies to optimize your business processes, enhance customer experiences, and unlock valuable insights from your data for smarter decision-making.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Brand Identity Design</h3>
+                    <p>Build a memorable brand that stands out. We create comprehensive visual identities including logos, color palettes, typography, and brand guidelines that reflect your company's values and resonate with your target market. Your brand deserves to be unforgettable.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO & Digital Strategy</h3>
+                    <p>Dominate search rankings and attract qualified traffic. Our SEO experts optimize your online presence through keyword research, technical SEO, link building, and content strategy. We combine organic search tactics with paid advertising for maximum visibility and sustainable growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <li>
-            <p class="footer-list-title">Our Services</p>
-          </li>
+    <section id="about" class="mission-vision">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <h3>Mission</h3>
+                    <p>To empower businesses of all sizes with innovative digital solutions that transform ideas into measurable impact. We are committed to delivering excellence through creativity, technology, and strategic thinking. Our mission is to be the catalyst for our clients' digital success, helping them navigate the ever-evolving digital landscape with confidence and achieve their business objectives through data-driven strategies and cutting-edge solutions.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>Vision</h3>
+                    <p>To become Africa's leading digital powerhouse and a globally recognized agency known for creativity, reliability, and transformative results. We envision a future where businesses across all industries leverage technology to unlock their full potential. By 2030, we aim to have helped over 1,000 businesses achieve digital excellence, setting new standards for innovation and customer success in the digital marketing and technology space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <li>
-            <a href="#" target="_blank" class="footer-link">Strategy & Research</a>
-          </li>
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Webphorce</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h4>Experienced Team</h4>
+                    <p>Our diverse team brings together experts in development, design, marketing, and AI with over 50 years of combined experience delivering exceptional digital solutions</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Tailored Solutions</h4>
+                    <p>No two businesses are alike. We create custom strategies specifically designed to meet your unique goals, challenges, and budget requirements</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h4>Results-Driven</h4>
+                    <p>We don't just make promises—we deliver measurable outcomes. Our track record includes increasing client revenue by an average of 150% within the first year</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💡</div>
+                    <h4>Innovation First</h4>
+                    <p>We stay ahead of industry trends, constantly evolving our services to incorporate the latest technologies and methodologies for maximum competitive advantage</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <li>
-            <a href="#" target="_blank" class="footer-link">Web Development</a>
-          </li>
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">👨‍💼</div>
+                    <div class="team-info">
+                        <h3>Michael Adebayo</h3>
+                        <p class="team-role">CEO & Founder</p>
+                        <p>Visionary leader with 10+ years of experience in digital transformation. Michael founded Webphorce to bridge the gap between innovative technology and business success.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">👩‍💻</div>
+                    <div class="team-info">
+                        <h3>Sarah Okafor</h3>
+                        <p class="team-role">Lead Developer</p>
+                        <p>Full-stack developer specializing in React, Node.js, and cloud architecture. Sarah has built over 100 web applications for clients across various industries.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">👨‍🎨</div>
+                    <div class="team-info">
+                        <h3>David Chen</h3>
+                        <p class="team-role">Creative Director</p>
+                        <p>Award-winning designer with a passion for creating memorable brand experiences. David's work has been featured in international design publications.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">👩‍💼</div>
+                    <div class="team-info">
+                        <h3>Amina Ibrahim</h3>
+                        <p class="team-role">Marketing Strategist</p>
+                        <p>Data-driven marketer who has helped brands achieve 300% ROI increases. Amina specializes in social media marketing and conversion optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <li>
-            <a href="#" target="_blank" class="footer-link">Web Solution</a>
-          </li>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; color: #666;">Ready to transform your digital presence? Fill out the form below and our team will get back to you within 24 hours.</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:info@webphorce.com">info@webphorce.com</a></p>
+                            <p><a href="mailto:support@webphorce.com">support@webphorce.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p><a href="tel:07042180881">+234 704 218 0881</a></p>
+                            <p>Mon - Fri: 9am - 6pm WAT</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Alimosho, Lagos</p>
+                            <p>Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="http://www.webphorce.com" target="_blank">www.webphorce.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+234 XXX XXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <input type="text" id="service" name="service" placeholder="e.g., Web Development">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <li>
-            <a href="#" target="_blank" class="footer-link">Digital Merketing</a>
-          </li>
+    <footer>
+        <div class="container" style="max-width: 1200px; padding: 3rem 2rem 1rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem;">
+                <div>
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650'%3E%3Crect width='1000' height='650' fill='%230a2540'/%3E%3Ccircle cx='200' cy='325' r='140' fill='none' stroke='%23ffffff' stroke-width='20'/%3E%3Ctext x='150' y='360' font-family='Arial, sans-serif' font-size='160' font-weight='bold' fill='%23ffffff'%3EW%3C/text%3E%3Ctext x='200' y='360' font-family='Arial, sans-serif' font-size='160' font-weight='bold' fill='%23ff9933'%3EP%3C/text%3E%3Ctext x='380' y='360' font-family='Arial, sans-serif' font-size='120' font-weight='bold' fill='%23ffffff'%3EWEBPHORCE%3C/text%3E%3C/svg%3E" alt="Webphorce Logo" class="logo-img">
+                    </div>
+                    <p style="opacity: 0.9; line-height: 1.8;">Transforming businesses through innovative digital solutions. We combine creativity, technology, and strategy to deliver measurable results.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #ff9933;">Quick Links</h4>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li><a href="#home" style="color: white; text-decoration: none; opacity: 0.9;">Home</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none; opacity: 0.9;">Services</a></li>
+                        <li><a href="#about" style="color: white; text-decoration: none; opacity: 0.9;">About Us</a></li>
+                        <li><a href="#team" style="color: white; text-decoration: none; opacity: 0.9;">Our Team</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none; opacity: 0.9;">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #ff9933;">Our Services</h4>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="opacity: 0.9;">Web Development</li>
+                        <li style="opacity: 0.9;">Social Media Marketing</li>
+                        <li style="opacity: 0.9;">Content Writing</li>
+                        <li style="opacity: 0.9;">AI & ML Solutions</li>
+                        <li style="opacity: 0.9;">Brand Identity Design</li>
+                        <li style="opacity: 0.9;">SEO & Digital Strategy</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #ff9933;">Connect With Us</h4>
+                    <p style="opacity: 0.9; margin-bottom: 0.5rem;">📧 info@webphorce.com</p>
+                    <p style="opacity: 0.9; margin-bottom: 0.5rem;">📞 +234 704 218 0881</p>
+                    <p style="opacity: 0.9; margin-bottom: 1rem;">📍 Alimosho, Lagos, Nigeria</p>
+                    <div style="display: flex; gap: 1rem; font-size: 1.5rem;">
+                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">📘</a>
+                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">🐦</a>
+                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">💼</a>
+                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">📷</a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+                <p>&copy; 2025 Webphorce. All rights reserved. | Transform Your Digital Presence</p>
+                <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Crafted with ❤️ for businesses ready to dominate the digital world</p>
+            </div>
+        </div>
+    </footer>
 
-          <li>
-            <a href="#" target="_blank" class="footer-link">App Design</a>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">App Development</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Company</p>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">About Company</a>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">Our Services</a>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">Our Portfolio</a>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">Our Blog</a>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">Latest News</a>
-          </li>
-
-          <li>
-            <a href="#" target="_blank" class="footer-link">Contact Us</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Contact Us</p>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="location" aria-hidden="true"></ion-icon>
-
-            <address class="contact-link address">
-              Nigeria
-            </address>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="call" aria-hidden="true"></ion-icon>
-
-            <a href="tel:+7894631546876" class="contact-link">+234.....</a>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="mail" aria-hidden="true"></ion-icon>
-
-            <a href="mailto:info@Web Phorce.com" class="contact-link">info@Web Phorce.com</a>
-          </li>
-
-          <li class="footer-item">
-            <ul class="social-list">
-
-              <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-pinterest"></ion-icon>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-        </ul>
-
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          &copy; 2025 Web Phorce | All Rights Reserved by <a href="#" class="copyright-link">Webphorce</a>
-        </p>
-
-        <ul class="footer-bottom-list">
-
-          <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">Terms of Use</a>
-          </li>
-
-        </ul>
-
-      </div>
-    </div>
-
-  </footer>
-
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
