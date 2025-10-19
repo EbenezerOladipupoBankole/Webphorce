@@ -88,25 +88,12 @@ nav {
 
 /* Hero Section */
 .hero {
-    background-color: #0a2540; /* Fallback color */
+    background: linear-gradient(135deg, #0a2540 0%, #1a3a5c 100%);
     color: white;
     padding: 150px 2rem 100px;
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-#hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 0;
-    object-fit: cover;
 }
 
 .hero::before {
@@ -117,26 +104,15 @@ nav {
     right: 0;
     bottom: 0;
     background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-    opacity: 0.1; /* Reduced opacity to be more subtle over the video */
-    z-index: 1;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 37, 64, 0.7); /* Dark overlay for text readability */
-    z-index: 1;
+    opacity: 0.5;
+    z-index: 0;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    z-index: 2; /* Ensure content is above the video and overlays */
+    z-index: 1;
 }
 
 .hero h1 {
@@ -152,6 +128,13 @@ nav {
     animation: fadeInUp 1s ease 0.2s backwards;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -161,12 +144,28 @@ nav {
     border-radius: 50px;
     font-weight: bold;
     transition: transform 0.3s, box-shadow 0.3s;
-    animation: fadeInUp 1s ease 0.4s backwards;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(255, 153, 51, 0.4);
+}
+
+.cta-button-outline {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button-outline:hover {
+    background-color: white;
+    color: #0a2540;
 }
 
 /* Services Section */
