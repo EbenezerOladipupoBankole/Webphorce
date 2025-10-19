@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dara Everbright Ltd — Where Stories Come Alive</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burnt-orange: #D8572A;
+            --deep-teal: #1B4D3E;
+            --warm-cream: #F8F3E8;
+            --charcoal: #2B2B2B;
+            --soft-gray: #6B6B6B;
+            --accent-gold: #C9A961;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.8rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(248, 243, 232, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(43, 43, 43, 0.08);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-accent {
+            color: var(--burnt-orange);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--burnt-orange);
+        }
+
+        .nav-contact-btn {
+            padding: 0.7rem 1.8rem;
+            background: var(--burnt-orange);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-contact-btn:hover {
+            background: var(--deep-teal);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 95vh;
+            padding: 10rem 4% 6rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(216, 87, 42, 0.12), transparent);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--burnt-orange);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2px;
+            background: var(--burnt-orange);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.2rem, 6vw, 5.8rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1.8rem;
+            color: var(--deep-teal);
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--burnt-orange);
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.75;
+            color: var(--soft-gray);
+            margin-bottom: 1rem;
+            max-width: 580px;
+        }
+
+        .hero-subdesc {
+            font-size: 1.05rem;
+            color: var(--soft-gray);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1.1rem 2.5rem;
+            background: var(--burnt-orange);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 20px rgba(216, 87, 42, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(27, 77, 62, 0.3);
+        }
+
+        .btn-outline {
+            padding: 1.1rem 2.5rem;
+            background: transparent;
+            color: var(--deep-teal);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--deep-teal);
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1.05rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--deep-teal);
+            color: white;
+        }
+
+        .hero-trust-signals {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--soft-gray);
+        }
+
+        .trust-icon {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cards-stack {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+
+        .hero-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(43, 43, 43, 0.06);
+            transition: transform 0.4s ease;
+        }
+ 
+        .hero-card-1 {
+            width: 85%;
+            top: 0;
+            left: 0;
+            transform: rotate(-3deg);
+            z-index: 1;
+        }
+ 
+        .hero-card-2 {
+            width: 85%;
+            top: 120px;
+            left: 5%;
+            transform: rotate(2deg);
+            z-index: 2;
+            background: var(--deep-teal);
+            color: white;
+        }
+ 
+        .hero-card-3 {
+            width: 85%;
+            top: 240px;
+            left: 10%;
+            transform: rotate(-1deg);
+            z-index: 3;
+            background: var(--burnt-orange);
+            color: white;
+        }
+
+        /* Active state for clicked card */
+        .hero-card.active {
+            transform: translate(5%, -20%) rotate(0deg) scale(1.05);
+            z-index: 10;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* State for non-active cards when one is active */
+        .hero-cards-stack.is-active .hero-card:not(.active) {
+            transform: scale(0.95);
+            opacity: 0.7;
+        }
+
+        .hero-card:not(.active):hover {
+            transform: translateY(-8px) !important;
+        }
+
+        .hero-card.active:hover {
+            transform: translate(5%, -22%) rotate(0deg) scale(1.05) !important;
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            padding: 4rem 4%;
+            background: var(--deep-teal);
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 7rem 4%;
+            background: white;
+        }
+
+        .section-intro {
+            max-width: 700px;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--burnt-orange);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .section-desc {
+            font-size: 1.15rem;
+            color: var(--soft-gray);
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-item {
+            background: var(--warm-cream);
+            padding: 3rem;
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .service-item:hover {
+            border-color: var(--burnt-orange);
+            transform: translateY(-8px);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(216, 87, 42, 0.08);
+            line-height: 1;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--deep-teal);
+        }
+
+        .service-description {
+            color: var(--soft-gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--burnt-orange);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 7rem 4%;
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #143a31 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            letter-spacing: -1.5px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.92;
+        }
+
+        .founders-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .founders-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .founder {
+            text-align: center;
+        }
+
+        .founder-image {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-gold);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .founder-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .feature-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .feature-box p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 7rem 4%;
+            background: var(--warm-cream);
+        }
+
+        .contact-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            font-weight: 900;
+            color: var(--deep-teal);
+            margin-bottom: 1.2rem;
+            letter-spacing: -1.5px;
+        }
+
+        .contact-header p {
+            font-size: 1.15rem;
+            color: var(--soft-gray);
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--charcoal);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid rgba(43, 43, 43, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s;
+            background: var(--warm-cream);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--burnt-orange);
+            background: white;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--burnt-orange);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: var(--deep-teal);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4%;
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 8rem;
+            }
+
+            .hero-cards-stack {
+                height: 450px;
+                margin-top: 3rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Dara <span class="logo-accent">Everbright</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" class="nav-contact-btn">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <div class="hero-eyebrow">Media Consultancy & Production</div>
+            <h1>Craft Stories<br>That <span class="highlight">Actually</span><br>Connect</h1>
+            <p class="hero-description">We're not just another production house. We're your partners in creating media that cuts through the noise and builds real, lasting connections with your audience.</p>
+            <p class="hero-subdesc">Born from missionary discipline and MTC training, we bring purpose-driven storytelling to every frame we shoot.</p>
+            
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Start a Project</a>
+                <a href="#services" class="btn-outline">See What We Do</a>
+            </div>
+
+            <div class="hero-trust-signals">
+                <div class="trust-item">
+                    <span class="trust-icon">✦</span>
+                    <span>Professional Excellence</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✦</span>
+                    <span>Strategic Approach</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✦</span>
+                    <span>Purpose-Driven</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-cards-stack">
+                <div class="hero-card hero-card-1">
+                    <span class="card-icon">🎥</span>
+                    <h3 class="card-title">Video Production</h3>
+                    <p class="card-desc">From corporate storytelling to social campaigns that actually perform.</p>
+                </div>
+                <div class="hero-card hero-card-2">
+                    <span class="card-icon">📱</span>
+                    <h3 class="card-title">Social Strategy</h3>
+                    <p class="card-desc">Content plans that turn followers into a community.</p>
+                </div>
+                <div class="hero-card hero-card-3">
+                    <span class="card-icon">🎓</span>
+                    <h3 class="card-title">Media Training</h3>
+                    <p class="card-desc">Build your team's confidence and capability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2025</div>
+                <div class="stat-label">Founded</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Core Services</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Focused</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Creative Vision</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-intro">
+            <div class="section-tag">What We Offer</div>
+            <h2 class="section-title">Services Built Around Your Success</h2>
+            <p class="section-desc">We don't do cookie-cutter solutions. Every project gets the attention, creativity, and strategic thinking it deserves.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-item">
+                <span class="service-number">01</span>
+                <span class="service-icon">🎬</span>
+                <h3 class="service-title">Video Production & Editing</h3>
+                <p class="service-description">Cinematic production for corporate events, brand campaigns, and digital content. We handle everything from concept development to final delivery—so you can focus on your message while we perfect the medium.</p>
+                <a href="#contact" class="service-link">Get Started →</a>
+            </div>
+
+            <div class="service-item">
+                <span class="service-number">02</span>
+                <span class="service-icon">📲</span>
+                <h3 class="service-title">Social Media Strategy</h3>
+                <p class="service-description">Strategic content that doesn't just get likes—it builds communities. We craft platform-specific campaigns that resonate with your audience and drive real engagement across Instagram, LinkedIn, TikTok, and beyond.</p>
+                <a href="#contact" class="service-link">Get Started →</a>
+            </div>
+
+            <div class="service-item">
+                <span class="service-number">03</span>
+                <span class="service-icon">🎓</span>
+                <h3 class="service-title">Media Training & Consulting</h3>
+                <p class="service-description">Empower your team with professional media skills. From camera confidence to content strategy workshops, we equip organizations with the knowledge to own their digital presence and communicate with clarity.</p>
+                <a href="#contact" class="service-link">Get Started →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2>Built Different, By Design</h2>
+                <p>Dara Everbright Ltd was founded in September 2025 by Dela Aniwa and Ruth Adjei—two professionals who understand that great media isn't just about fancy equipment or trendy effects.</p>
+                <p>Our foundation in missionary service and MTC training taught us something critical: communication is about connection, not just content. It's about understanding your audience, speaking their language, and delivering messages that move people to action.</p>
+                <p>While we started with media consultancy as our flagship, we're built to grow. As a multi-sector holdings firm, we have the structure to expand into new industries while keeping our core commitment to excellence, integrity, and impact.</p>
+
+                <div class="founders-section">
+                    <h3 class="founders-title">Meet the Founders</h3>
+                    <div class="founders-grid">
+                        <div class="founder">
+                            <div class="founder-image">
+                                <img src="https://via.placeholder.com/110x110/1B4D3E/FFFFFF?text=DA" alt="Dela Aniwa">
+                            </div>
+                            <div class="founder-name">Dela Aniwa</div>
+                            <div class="founder-role">Co-Founder</div>
+                        </div>
+                        <div class="founder">
+                            <div class="founder-image">
+                                <img src="https://via.placeholder.com/110x110/D8572A/FFFFFF?text=RA" alt="Ruth Adjei">
+                            </div>
+                            <div class="founder-name">Ruth Adjei</div>
+                            <div class="founder-role">Co-Founder</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-features">
+                <div class="feature-box">
+                    <h3>Rooted in Purpose</h3>
+                    <p>Our missionary background gives us a unique perspective on communication—we know how to tell stories that inspire action and build trust.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Professional & Relatable</h3>
+                    <p>We strike the perfect balance between polished production quality and authentic storytelling that feels human, not corporate.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Long-Term Vision</h3>
+                    <p>We're not chasing quick wins. Every project is an investment in building lasting relationships and sustainable growth for our clients.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Growth Mindset</h3>
+                    <p>As a multi-sector holdings company, we're structured to evolve and expand while maintaining our commitment to excellence in everything we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-wrapper">
+            <div class="contact-header">
+                <div class="section-tag">Get In Touch</div>
+                <h2>Let's Create Something Worth Watching</h2>
+                <p>Have a project in mind? Need help with your content strategy? Just want to chat about possibilities? Drop us a message and let's start the conversation.</p>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@company.com" required>
+                    </div>
+                </div>
+                <div class="form-group form-group-full">
+                    <label>Subject</label>
+                    <input type="text" placeholder="What's this about?">
+                </div>
+                <div class="form-group form-group-full">
+                    <label>Your Message</label>
+                    <textarea placeholder="Tell us about your project, goals, or any questions you have..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Dara Everbright</div>
+            <p class="footer-text">Creating stories that move people.</p>
+            <p class="footer-text">&copy; 2025 Dara Everbright Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thanks for reaching out! We\'ll get back to you within 24 hours.');
+            e.target.reset();
+        }
+
+        // Parallax effect on hero cards
+        let ticking = false;
+        document.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const cards = document.querySelectorAll('.hero-card');
+                    const mouseX = e.clientX / window.innerWidth;
+                    const mouseY = e.clientY / window.innerHeight;
+                    
+                    cards.forEach((card, index) => {
+                        const speed = (index + 1) * 5;
+                        const x = (mouseX - 0.5) * speed;
+                        const y = (mouseY - 0.5) * speed;
+                        card.style.transform = `translate(${x}px, ${y}px) rotate(${card.style.transform.match(/rotate\([^)]+\)/)?.[0] || 'rotate(0deg)'})`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in to sections
+        document.querySelectorAll('.service-item, .feature-box, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            fadeObserver.observe(el);
+        });
+
+        // Add stagger delay to service items
+        document.querySelectorAll('.service-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        // Hero card click interaction
+        const cardStack = document.querySelector('.hero-cards-stack');
+        const cards = document.querySelectorAll('.hero-card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // If the clicked card is already active, deactivate all
+                if (card.classList.contains('active')) {
+                    card.classList.remove('active');
+                    cardStack.classList.remove('is-active');
+                } else {
+                    // Deactivate any other active card
+                    cards.forEach(c => c.classList.remove('active'));
+                    // Activate the clicked card
+                    card.classList.add('active');
+                    cardStack.classList.add('is-active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+    <!-- 
+    <!-- About Section
+    <section id="about" class="about">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2>Built Different, By Design</h2>
+                <p>Dara Everbright Ltd was founded in September 2025 by Dela Aniwa and Ruth Adjei—two professionals who understand that great media isn't just about fancy equipment or trendy effects.</p>
+                <p>Our foundation in missionary service and MTC training taught us something critical: communication is about connection, not just content. It's about understanding your audience, speaking their language, and delivering messages that move people to action.</p>
+                <p>While we started with media consultancy as our flagship, we're built to grow. As a multi-sector holdings firm, we have the structure to expand into new industries while keeping our core commitment to excellence, integrity, and impact.</p>
+
+                <div class="founders-section">
+                    <h3 class="founders-title">Meet the Founders</h3>
+                    <div class="founders-grid">
+                        <div class="founder">
+                            <div class="founder-image">
+                                <img src="https://via.placeholder.com/110x110/1B4D3E/FFFFFF?text=DA" alt="Dela Aniwa">
+                            </div>
+                            <div class="founder-name">Dela Aniwa</div>
+                            <div class="founder-role">Co-Founder</div>
+                        </div>
+                        <div class="founder">
+                            <div class="founder-image">
+                                <img src="https://via.placeholder.com/110x110/D8572A/FFFFFF?text=RA" alt="Ruth Adjei">
+                            </div>
+                            <div class="founder-name">Ruth Adjei</div>
+                            <div class="founder-role">Co-Founder</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-features">
+                <div class="feature-box">
+                    <h3>Rooted in Purpose</h3>
+                    <p>Our missionary background gives us a unique perspective on communication—we know how to tell stories that inspire action and build trust.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Professional & Relatable</h3>
+                    <p>We strike the perfect balance between polished production quality and authentic storytelling that feels human, not corporate.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Long-Term Vision</h3>
+                    <p>We're not chasing quick wins. Every project is an investment in building lasting relationships and sustainable growth for our clients.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Growth Mindset</h3>
+                    <p>As a multi-sector holdings company, we're structured to evolve and expand while maintaining our commitment -->

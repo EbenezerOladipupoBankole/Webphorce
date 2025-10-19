@@ -76,3 +76,26 @@ emailInput.addEventListener('blur', function() {
         this.style.borderColor = '#e0e0e0';
     }
 });
+
+// Interactive Team Section Scrolling
+const teamGrid = document.querySelector('.team-grid');
+
+if (teamGrid) {
+    teamGrid.addEventListener('mousemove', (e) => {
+        // We only want this effect on desktop
+        if (window.innerWidth < 768) return;
+
+        // Get the bounding rectangle of the container
+        const rect = teamGrid.getBoundingClientRect();
+
+        // Calculate the mouse position as a percentage from left (0) to right (1)
+        const mouseX = e.clientX - rect.left;
+        const percent = mouseX / rect.width;
+
+        // Calculate the maximum scrollable distance
+        const maxScroll = teamGrid.scrollWidth - teamGrid.clientWidth;
+
+        // Set the scroll position based on the mouse percentage
+        teamGrid.scrollLeft = maxScroll * percent;
+    });
+}

@@ -167,6 +167,13 @@ nav {
     color: #0a2540;
 }
 
+.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: #666;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -203,33 +210,144 @@ nav {
     line-height: 1.8;
 }
 
-/* Mission & Vision Section */
-.mission-vision {
+
+
+
+
+    .services {
+        padding: 8rem 6%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -1px;
+    }
+
+    .section-header p {
+        font-size: 1.1rem;
+        color: #5a6a85;
+        max-width: 600px;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+    .service-card {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 20px;
+        padding: 2.5rem;
+        transition: all 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(15, 31, 61, 0.08);
+        border-color: #ff6b35;
+    }
+
+    .service-number {
+        font-size: 0.85rem;
+        color: #ff6b35;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: #0f1f3d;
+    }
+
+    .service-card p {
+        color: #5a6a85;
+        line-height: 1.7;
+    }
+
+
+    
+    .marquee-section {
+        padding: 4rem 0;
+        background: #0f1f3d;
+        overflow: hidden;
+        border-top: 1px solid #1a3a6b;
+        border-bottom: 1px solid #1a3a6b;
+    }
+
+    .marquee {
+        display: flex;
+        white-space: nowrap;
+        animation: scroll-left 30s linear infinite;
+    }
+
+    .marquee span {
+        font-size: 3rem;
+        animation: bob 8s ease-in-out infinite;
+        font-weight: 700;
+        color: #fafafa;
+        margin: 0 3rem;
+        letter-spacing: -1px;
+    }
+
+/* New About Section */
+.about-section {
     padding: 100px 2rem;
-    background: linear-gradient(135deg, #0a2540 0%, #1a3a5c 100%);
-    color: white;
+    background: white;
 }
 
-.mv-grid {
+.about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.mv-card {
-    background: rgba(255,255,255,0.1);
-    padding: 2.5rem;
+.about-image {
+    width: 100%;
+    height: 450px;
+    background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') center/cover;
     border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.mv-card h3 {
-    font-size: 2rem;
+.about-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.core-values {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.core-values li {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0a2540;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.core-values span {
     color: #ff9933;
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }
 
 /* Why Choose Us */
@@ -268,16 +386,14 @@ nav {
 }
 
 .team-grid {
-    display: flex; /* Change to flexbox */
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
-    scroll-snap-type: x mandatory; /* Optional: for snapping to cards */
-    justify-content: flex-start; /* Align items to the start */
+    display: flex;
+    overflow-x: hidden; /* Hide scrollbar, JS will handle scroll */
+    cursor: grab;
     gap: 2.5rem;
-    max-width: 90%; /* Reduce the max-width to make it more moderate */
     margin: 3rem auto 0;
-    padding: 1rem; /* Add padding for better spacing around the cards */
+    max-width: 1200px;
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch; /* For smooth touch scroll on mobile */
 }
 
 .team-member {
@@ -287,9 +403,8 @@ nav {
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
-    flex-shrink: 0; /* Prevent items from shrinking */
-    min-width: 280px; /* Ensure a minimum width for each card */
-    scroll-snap-align: start; /* Optional: for snapping to cards */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    width: 300px; /* Set a fixed width for each card */
 }
 
 .team-member:hover {
@@ -298,14 +413,16 @@ nav {
 }
 
 .team-photo {
-    width: 100%;
-    height: 280px;
+    width: 150px;
+    height: 150px;
     background: linear-gradient(135deg, #1a3a5c 0%, #2a4a6c 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 5rem;
     color: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    margin: 2rem auto 1.5rem;
 }
 
 .team-info {
@@ -336,11 +453,8 @@ nav {
 }
 
 .contact-wrapper {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
 }
 
 .contact-info {
@@ -386,7 +500,7 @@ nav {
 }
 
 .contact-form {
-    background: white;
+    background: white; /* This style is now redundant as contact-wrapper is the form container */
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
@@ -468,8 +582,65 @@ nav {
 footer {
     background: #0a2540;
     color: white;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo-img {
+    height: 80px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+.footer-links h4, .footer-connect h4 {
+    margin-bottom: 1.5rem;
+    color: #ff9933;
+    font-size: 1.1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    line-height: 2.2;
+}
+
+.footer-links a, .footer-links li {
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: #ff9933;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 2rem;
     text-align: center;
-    padding: 2rem;
 }
 
 /* Animations */
@@ -481,6 +652,20 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
     }
 }
 
@@ -503,10 +688,15 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* Adjust team grid for smaller screens to ensure horizontal scroll */
-    .team-grid {
-        padding-bottom: 1rem; /* Add some padding for scrollbar visibility */
-        margin-left: 2rem; /* Adjust margin for better appearance with scroll */
-        margin-right: 2rem;
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
+
+    .team-grid {
+        overflow-x: auto; /* Enable native touch scrolling on mobile */
+        scroll-snap-type: x mandatory; /* Snap to cards on mobile */
+    }
+
+    .team-member { scroll-snap-align: start; }
 }
