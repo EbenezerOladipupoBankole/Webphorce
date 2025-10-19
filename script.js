@@ -1,3 +1,22 @@
+// Mobile Navigation Toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('nav-links');
+
+mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+});
+
+// Close mobile menu when a link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        // Check if the mobile nav is active before closing
+        if (navLinks.classList.contains('nav-active')) {
+            navLinks.classList.remove('nav-active');
+        }
+    });
+});
+
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -41,7 +60,6 @@ contactForm.addEventListener('submit', function(e) {
     const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
         service: document.getElementById('service').value,
         message: document.getElementById('message').value
     };

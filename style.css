@@ -66,6 +66,26 @@ nav {
     color: #ff9933;
 }
 
+.mobile-toggle {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #0a2540;
+    border-radius: 10px;
+}
+
 /* Hero Section */
 .hero {
     background-color: #0a2540; /* Fallback color */
@@ -671,13 +691,31 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
+    .mobile-toggle {
+        display: flex;
     }
 
     .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 70%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.nav-active {
+        right: 0; /* Slide in */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
     }
 
     .section-title {
