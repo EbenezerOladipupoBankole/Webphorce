@@ -518,6 +518,195 @@
             transition: color 0.2s;
             font-size: 0.95rem;
         }
+                /* Chatbot Styles */
+                .chatbot-container {
+                    position: fixed;
+                    bottom: 25px;
+                    right: 25px;
+                    z-index: 1001;
+                }
+        
+                .chat-toggle-btn {
+                    width: 60px;
+                    height: 60px;
+                    background: #f7941d;
+                    color: white;
+                    border-radius: 50%;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                    transition: transform 0.2s, background-color 0.2s;
+                }
+        
+                .chat-toggle-btn:hover {
+                    background: #e07d0a;
+                    transform: scale(1.1);
+                }
+        
+                .chat-toggle-btn svg {
+                    width: 32px;
+                    height: 32px;
+                    transition: transform 0.3s, opacity 0.3s;
+                }
+                
+                .chat-toggle-btn .icon-close {
+                    display: none;
+                }
+        
+                .chat-widget {
+                    width: 350px;
+                    max-height: 500px;
+                    background: white;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    transform: scale(0.9) translateY(20px);
+                    opacity: 0;
+                    transform-origin: bottom right;
+                    transition: transform 0.3s, opacity 0.3s;
+                    visibility: hidden;
+                }
+        
+                .chatbot-container.open .chat-widget {
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+        
+                .chatbot-container.open .chat-toggle-btn .icon-open { display: none; }
+                .chatbot-container.open .chat-toggle-btn .icon-close { display: block; }
+        
+                .chat-header {
+                    background: #153e5c;
+                    color: white;
+                    padding: 1rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                
+                .chat-header-text {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+        
+                .chat-logo {
+                    height: 35px;
+                    width: auto;
+                    border-radius: 50%;
+                    background: white;
+                    padding: 2px;
+                }
+        
+                .chat-header-text div {
+                    display: flex;
+                    flex-direction: column;
+                }
+        
+                .chat-header-text strong {
+                    font-weight: 600;
+                }
+        
+                .chat-header-text span {
+                    font-size: 0.8rem;
+                    opacity: 0.8;
+                }
+        
+                .chat-close-btn {
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    opacity: 0.7;
+                    transition: opacity 0.2s;
+                }
+                .chat-close-btn:hover { opacity: 1; }
+        
+                .chat-body {
+                    flex-grow: 1;
+                    padding: 1rem;
+                    overflow-y: auto;
+                }
+        
+                .chat-message {
+                    margin-bottom: 1rem;
+                    max-width: 90%;
+                }
+        
+                .chat-message.bot p {
+                    background: #f0f2f5;
+                    color: #1e293b;
+                    padding: 0.8rem 1rem;
+                    border-radius: 18px 18px 18px 0;
+                    display: inline-block;
+                }
+                
+                .chat-message.user p {
+                    background: #f7941d;
+                    color: white;
+                    padding: 0.8rem 1rem;
+                    border-radius: 18px 18px 0 18px;
+                    display: inline-block;
+                }
+        
+                .chat-message.user {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+        
+                .chat-options {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                }
+        
+                .chat-option {
+                    background: white;
+                    border: 1px solid #f7941d;
+                    color: #f7941d;
+                    padding: 0.7rem 1rem;
+                    border-radius: 18px;
+                    cursor: pointer;
+                    text-align: center;
+                    font-weight: 600;
+                    transition: all 0.2s;
+                }
+        
+                .chat-option:hover {
+                    background: #f7941d;
+                    color: white;
+                }
+        
+                .chat-footer {
+                    padding: 0.7rem;
+                    text-align: center;
+                    font-size: 0.8rem;
+                    color: #94a3b8;
+                    background: #f8f9fa;
+                    border-top: 1px solid #e2e8f0;
+                }
+                .chat-footer a {
+                    color: #f7941d;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+        
+                @media (max-width: 400px) {
+                    .chat-widget {
+                        width: calc(100vw - 40px);
+                        bottom: 80px;
+                        right: 20px;
+                    }
+                }
+        
 
         .footer-links a:hover {
             color: #f7941d;
@@ -780,6 +969,35 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </div>
+                <!-- Chatbot -->
+                <div class="chatbot-container">
+                    <div class="chat-widget" id="chatWidget">
+                        <div class="chat-header">
+                            <div class="chat-header-text">
+                                <img src="images/image.png" alt="WebPhorce Logo" class="chat-logo">
+                                <div>
+                                    <strong>WebPhorce Assistant</strong>
+                                    <span>Typically replies instantly</span>
+                                </div>
+                            </div>
+                            <button class="chat-close-btn" id="chatCloseBtn">&times;</button>
+                        </div>
+                        <div class="chat-body" id="chatBody">
+                            <div class="chat-message bot">
+                                <p>Hi there! I'm the WebPhorce assistant. How can I help you today?</p>
+                            </div>
+                            <!-- Options will be added here by JavaScript -->
+                        </div>
+                        <div class="chat-footer">
+                            Powered by <a href="index.html">WebPhorce</a>
+                        </div>
+                    </div>
+                    <button class="chat-toggle-btn" id="chatToggleBtn">
+                        <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path></svg>
+                        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+                    </button>
+                </div>
+            
             <div class="footer-links">
                 <h4>Resources</h4>
                 <ul>
@@ -796,6 +1014,104 @@
     </footer>
 
     <script>
+                // --- Chatbot Logic ---
+                const chatContainer = document.querySelector('.chatbot-container');
+                const chatToggleBtn = document.getElementById('chatToggleBtn');
+                const chatCloseBtn = document.getElementById('chatCloseBtn');
+                const chatBody = document.getElementById('chatBody');
+        
+                const toggleChatbot = () => {
+                    chatContainer.classList.toggle('open');
+                };
+        
+                chatToggleBtn.addEventListener('click', toggleChatbot);
+                chatCloseBtn.addEventListener('click', toggleChatbot);
+        
+                const conversation = {
+                    start: {
+                        bot: "Hi there! I'm the WebPhorce assistant. How can I help you today?",
+                        options: [
+                            { text: "Start a new project", next: "project" },
+                            { text: "Learn about your services", next: "services" },
+                            { text: "I have another question", next: "question" }
+                        ]
+                    },
+                    project: {
+                        bot: "Great! The best way to start is by booking a free consultation. We can discuss your project in detail with no obligation.",
+                        options: [
+                            { text: "Book a Consultation", action: () => window.location.href = 'contact.html' },
+                            { text: "Go back", next: "start" }
+                        ]
+                    },
+                    services: {
+                        bot: "We specialize in a few key areas. Which one are you most interested in?",
+                        options: [
+                            { text: "Web Design & Development", action: () => window.location.href = 'index.html#services' },
+                            { text: "Social Media Marketing", action: () => window.location.href = 'index.html#services' },
+                            { text: "AI/ML Solutions", action: () => window.location.href = 'index.html#services' },
+                            { text: "Go back", next: "start" }
+                        ]
+                    },
+                    question: {
+                        bot: "No problem. You can check our FAQ for common questions, or get in touch with our team directly.",
+                        options: [
+                            { text: "Read the FAQ", action: () => window.location.href = 'webphorce/faq.html' },
+                            { text: "Contact Us", action: () => window.location.href = 'contact.html' },
+                            { text: "Go back", next: "start" }
+                        ]
+                    }
+                };
+        
+                function displayStep(stepKey) {
+                    const step = conversation[stepKey];
+                    if (!step) return;
+        
+                    // Clear existing options
+                    const existingOptions = chatBody.querySelector('.chat-options');
+                    if (existingOptions) existingOptions.remove();
+        
+                    // Add bot message if it's not the start
+                    if (stepKey !== 'start') {
+                        const botMessage = document.createElement('div');
+                        botMessage.className = 'chat-message bot';
+                        botMessage.innerHTML = `<p>${step.bot}</p>`;
+                        chatBody.appendChild(botMessage);
+                    }
+        
+                    // Add new options
+                    if (step.options) {
+                        const optionsContainer = document.createElement('div');
+                        optionsContainer.className = 'chat-options';
+                        step.options.forEach(option => {
+                            const optionButton = document.createElement('button');
+                            optionButton.className = 'chat-option';
+                            optionButton.textContent = option.text;
+                            optionButton.addEventListener('click', () => handleOptionClick(option, stepKey));
+                            optionsContainer.appendChild(optionButton);
+                        });
+                        chatBody.appendChild(optionsContainer);
+                    }
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }
+        
+                function handleOptionClick(option, currentStepKey) {
+                    // Add user's choice as a message
+                    const userMessage = document.createElement('div');
+                    userMessage.className = 'chat-message user';
+                    userMessage.innerHTML = `<p>${option.text}</p>`;
+                    chatBody.appendChild(userMessage);
+        
+                    if (option.action) {
+                        option.action();
+                        toggleChatbot();
+                    } else if (option.next) {
+                        setTimeout(() => displayStep(option.next), 500);
+                    }
+                }
+        
+                // Initial display
+                displayStep('start');
+        
         // Mobile Navigation Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.querySelector('.nav-links');
