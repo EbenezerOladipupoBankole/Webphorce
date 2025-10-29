@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - WebPhforce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #fafafa;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 5.5rem 6%;
+            background: white;
+        }
+
+        .blog-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .blog-header {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-size: 2.8rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .blog-header p {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(247, 148, 29, 0.12);
+            border-color: #f7941d;
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .blog-category {
+            color: #f7941d;
+            font-weight: 600;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            color: #153e5c;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .read-more {
+            color: #f7941d;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination button {
+            padding: 0.7rem 1.2rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #153e5c;
+            transition: all 0.2s;
+        }
+
+        .pagination button:hover {
+            border-color: #f7941d;
+            color: #f7941d;
+        }
+
+        .pagination button.active {
+            background: #f7941d;
+            color: white;
+            border-color: #f7941d;
+        }
+
+        @media (max-width: 968px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="blog-section">
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1>Our Blog</h1>
+                <p>Insights, tips, and stories about web development, design, and growing your business online.</p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop" alt="Blog post">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Web Development</span>
+                            <span>•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>10 Web Design Trends Taking Over 2025</h3>
+                        <p>Discover the latest design trends that are shaping the web this year and how you can apply them to your projects.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop" alt="Blog post">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Business</span>
+                            <span>•</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>Why Your Business Needs a Mobile App in 2025</h3>
+                        <p>Mobile apps aren't just for big companies anymore. Here's why your business should consider going mobile.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Blog post">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Design</span>
+                            <span>•</span>
+                            <span>4 min read</span>
+                        </div>
+                        <h3>The Psychology of Color in Branding</h3>
+                        <p>Colors do more than look pretty—they influence how people feel about your brand. Here's what you need to know.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Blog post">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Marketing</span>
+                            <span>•</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>SEO Basics Every Business Owner Should Know</h3>
+                        <p>Search engine optimization doesn't have to be complicated. Start with these fundamental strategies.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop" alt="Blog post">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">E-commerce</span>
+                            <span>•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>Building an E-commerce Store That Actually Sells</h3>
+                        <p>Great products aren't enough—you need a store that converts visitors into customers. Here's how.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop" alt="Blog post">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tips & Tricks</span>
+                            <span>•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>5 Signs It's Time to Redesign Your Website</h3>
+                        <p>Is your website holding your business back? Here are the telltale signs it's time for a refresh.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button>Previous</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>Next</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - WebPhorce</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #1e293b; background: #fafafa; }
+        /* Shared Styles */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); z-index: 1000; padding: 1.3rem 6%; border-bottom: 1px solid rgba(21, 62, 92, 0.1); transition: padding 0.3s ease-in-out; }
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; width: auto; }
+        .nav-links { display: flex; gap: 2.8rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #334155; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #f7941d; }
+        .cta-btn { background: #f7941d; color: white !important; padding: 0.75rem 1.8rem; border-radius: 8px; font-weight: 600; transition: all 0.2s; }
+        .cta-btn:hover { background: #e07d0a; transform: translateY(-1px); }
+        .mobile-toggle { display: none; flex-direction: column; justify-content: space-around; width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1001; }
+        .mobile-toggle span { width: 28px; height: 3px; background-color: #153e5c; border-radius: 10px; transition: all 0.3s ease-in-out; }
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        footer { background: #153e5c; color: white; padding: 4rem 6% 2rem; }
+        .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand h3 { font-size: 1.6rem; margin-bottom: 0.8rem; color: #f7941d; font-weight: 700; }
+        .footer-brand p { color: #94a3b8; line-height: 1.6; font-size: 0.95rem; }
+        .footer-links h4 { margin-bottom: 1.2rem; color: white; font-weight: 600; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.7rem; transition: color 0.2s; font-size: 0.95rem; }
+        .footer-links a:hover { color: #f7941d; }
+        .footer-bottom { max-width: 1300px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; color: #94a3b8; font-size: 0.9rem; }
+        
+        /* Page-specific Styles */
+        .page-header { padding: 10rem 6% 5rem; background: #153e5c; text-align: center; }
+        .page-header h1 { font-size: 3rem; color: white; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.15rem; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
+
+        .portfolio-section { padding: 5.5rem 6%; background: white; }
+        .portfolio-container { max-width: 1300px; margin: 0 auto; }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .portfolio-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(247, 148, 29, 0.12);
+            border-color: #f7941d;
+        }
+        .portfolio-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .portfolio-content { padding: 1.5rem; }
+        .portfolio-content h3 { font-size: 1.3rem; color: #153e5c; margin-bottom: 0.5rem; }
+        .portfolio-content p { color: #64748b; font-size: 0.95rem; }
+        .portfolio-tag {
+            display: inline-block;
+            background: #fff4ed;
+            color: #f7941d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .nav-links { position: fixed; top: 73px; right: -100%; width: 80%; height: calc(100vh - 73px); background: white; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 3rem; gap: 2.5rem; transition: right 0.4s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+            .nav-links.active { right: 0; }
+            .mobile-toggle { display: flex; }
+            .footer-container { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/image.png" alt="WebPhforce Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html" class="cta-btn">Let's Talk</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h1>Our Work</h1>
+            <p>A selection of projects we're proud of. Real work for real clients that delivered real results.</p>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="portfolio-container">
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop" alt="Project Image">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Mobile App</span>
+                            <h3>FitConnect App</h3>
+                            <p>A social fitness app connecting users with personal trainers.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Project Image">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Web Development</span>
+                            <h3>DataDash Analytics</h3>
+                            <p>A corporate website for a fast-growing data analytics startup.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Project Image">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Brand Design</span>
+                            <h3>Innovate Co. Rebrand</h3>
+                            <p>A complete brand identity overhaul for a tech consulting firm.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop" alt="Project Image">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">E-commerce</span>
+                            <h3>Artisan Goods Store</h3>
+                            <p>A Shopify-based e-commerce store for a seller of handmade goods.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="Project Image">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Web Development</span>
+                            <h3>Legal Eagle Website</h3>
+                            <p>A professional and trustworthy website for a modern law firm.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" alt="Project Image">
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">UX/UI Design</span>
+                            <h3>TaskMaster App UI</h3>
+                            <p>User interface and experience design for a new productivity tool.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>WebPhorce</h3>
+                <p>A digital agency helping businesses grow online. Based in Lagos, working with clients worldwide.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Web Development</a></li>
+                    <li><a href="index.html#services">Mobile Apps</a></li>
+                    <li><a href="index.html#services">Brand Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="casestudy.html">Case Studies</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 WebPhforce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

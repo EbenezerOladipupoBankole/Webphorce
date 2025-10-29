@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Consultation - WebPhforce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #fafafa;
+        }
+
+        /* Consultation Section */
+        .consultation-section {
+            padding: 5.5rem 6%;
+            background: white;
+        }
+
+        .consultation-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .consultation-header h1 {
+            font-size: 2.8rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .consultation-header p {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Two Column Layout */
+        .consultation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        /* Left Side - Info */
+        .consultation-info h2 {
+            font-size: 1.8rem;
+            color: #153e5c;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .consultation-info p {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: #fff4ed;
+            color: #f7941d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .benefits-list strong {
+            color: #153e5c;
+        }
+
+        .testimonial-box {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #f7941d;
+            margin-top: 2rem;
+        }
+
+        .testimonial-box p {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #153e5c;
+            font-style: normal;
+        }
+
+        /* Right Side - Form */
+        .consultation-form {
+            background: #fafafa;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .consultation-form h3 {
+            font-size: 1.5rem;
+            color: #153e5c;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #153e5c;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f7941d;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #f7941d;
+            color: white;
+            padding: 1.1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: #e07d0a;
+            transform: translateY(-2px);
+        }
+
+        .privacy-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* What to Expect Section */
+        .expect-section {
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .expect-section h2 {
+            font-size: 2rem;
+            color: #153e5c;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .expect-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .expect-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #fff4ed;
+            color: #f7941d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+
+        .expect-step h3 {
+            font-size: 1.2rem;
+            color: #153e5c;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .expect-step p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 968px) {
+            .consultation-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .expect-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .consultation-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="consultation-section">
+        <div class="consultation-container">
+            <div class="consultation-header">
+                <h1>Let's Talk About Your Project</h1>
+                <p>Book a free 30-minute consultation. No sales pitch, no pressure—just honest advice about what would work best for your business.</p>
+            </div>
+
+            <div class="consultation-content">
+                <!-- Left Side - Info -->
+                <div class="consultation-info">
+                    <h2>What you get in a consultation call:</h2>
+                    
+                    <ul class="benefits-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Honest Assessment</strong><br>
+                                We'll review your current situation and tell you what's working and what's not.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Clear Recommendations</strong><br>
+                                You'll leave with actionable advice, whether you work with us or not.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Realistic Timeline & Budget</strong><br>
+                                We'll give you a ballpark estimate so you know what to expect.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>No Obligation</strong><br>
+                                Seriously. This is just a conversation. Zero pressure to commit.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="testimonial-box">
+                        <p>"The consultation alone was worth it. They gave me insights I hadn't considered and helped me avoid some costly mistakes. Even before we started working together, I knew they were the right team."</p>
+                        <p class="testimonial-author">— Sarah O., Founder of StyleHub</p>
+                    </div>
+                </div>
+
+                <!-- Right Side - Form -->
+                <div class="consultation-form">
+                    <h3>Schedule Your Free Call</h3>
+                    <form id="consultationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">What are you interested in? *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="website">Website Design/Development</option>
+                                <option value="mobile">Mobile App</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="branding">Branding/Logo Design</option>
+                                <option value="marketing">Digital Marketing</option>
+                                <option value="other">Not sure / Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Approximate Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="under-500k">Under ₦500,000</option>
+                                <option value="500k-1m">₦500,000 - ₦1,000,000</option>
+                                <option value="1m-3m">₦1,000,000 - ₦3,000,000</option>
+                                <option value="3m-plus">₦3,000,000+</option>
+                                <option value="flexible">Flexible / Not sure</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your project *</label>
+                            <textarea id="message" name="message" required placeholder="What are you trying to achieve? What challenges are you facing?"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Book My Free Consultation</button>
+                        
+                        <p class="privacy-note">We respect your privacy. Your information will never be shared.</p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- What to Expect Section -->
+            <div class="expect-section">
+                <h2>What happens after you submit?</h2>
+                <div class="expect-steps">
+                    <div class="expect-step">
+                        <div class="step-number">1</div>
+                        <h3>We'll Review</h3>
+                        <p>We'll look over your submission and do some quick research on your business.</p>
+                    </div>
+                    <div class="expect-step">
+                        <div class="step-number">2</div>
+                        <h3>We'll Reach Out</h3>
+                        <p>Within 24 hours, we'll contact you to schedule a convenient time for your call.</p>
+                    </div>
+                    <div class="expect-step">
+                        <div class="step-number">3</div>
+                        <h3>We'll Talk</h3>
+                        <p>During the call, we'll discuss your goals and provide honest, actionable recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you! We\'ll be in touch within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

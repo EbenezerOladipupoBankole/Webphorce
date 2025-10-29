@@ -3,256 +3,829 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webphorce - Transform Your Digital Presence</title>
-    <link rel="stylesheet" href="style.css">
+    <title>WebPhorce - Digital Agency for Modern Brands</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 1.3rem 6%;
+            border-bottom: 1px solid rgba(21, 62, 92, 0.1);
+            transition: padding 0.3s ease-in-out;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: height 0.3s ease-in-out;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #f7941d;
+        }
+
+        .cta-btn {
+            background: #f7941d;
+            color: white !important;
+            padding: 0.75rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: #e07d0a;
+            transform: translateY(-1px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 28px;
+            height: 3px;
+            background-color: #153e5c;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 90px;
+            padding: 7rem 6% 5rem;
+            background: #153e5c;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: #ffffff;
+            margin-bottom: 1.3rem;
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 .highlight {
+            color: #f7941d;
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 2.2rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: #f7941d;
+            color: white;
+            padding: 1.1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .primary-btn:hover {
+            background: #e07d0a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(247, 148, 29, 0.3);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            padding: 1.1rem 2.5rem;
+            border: 1.5px solid #475569;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .secondary-btn:hover {
+            border-color: #f7941d;
+            color: #f7941d;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 480px;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            background: white;
+            padding: 1.2rem 1.8rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .floating-badge h4 {
+            color: #153e5c;
+            font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+
+        .floating-badge p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 3.5rem 6%;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stats-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f7941d;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5.5rem 6%;
+            background: #fafafa;
+        }
+
+        .services-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            color: #153e5c;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(247, 148, 29, 0.12);
+            border-color: #f7941d;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #fff4ed;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            color: #153e5c;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5.5rem 6%;
+            background: white;
+        }
+
+        .process-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .step {
+            text-align: left;
+            position: relative;
+            padding: 2rem;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #f7941d;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+
+        .step h4 {
+            font-size: 1.2rem;
+            color: #153e5c;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .step p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Showcase Section */
+        .showcase {
+            padding: 5.5rem 6%;
+            background: #153e5c;
+        }
+
+        .showcase-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .showcase-header {
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
+        }
+
+        .showcase-header h2 {
+            font-size: 2.4rem;
+            color: white;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .showcase-header p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 550px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5.5rem 6%;
+            background: white;
+        }
+
+        .cta-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem 3rem;
+            background: #fafafa;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .cta-content h2 {
+            font-size: 2.6rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-content p {
+            font-size: 1.15rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #153e5c;
+            color: white;
+            padding: 4rem 6% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #f7941d;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.2rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.7rem;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: #f7941d;
+        }
+
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Scrolled Nav State */
+        nav.scrolled .logo img {
+            height: 45px;
+        }
+
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: left;
+                gap: 3rem;
+            }
+            
+            .services-grid,
+            .process-steps,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 73px; /* Match initial nav height */
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 73px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
+                gap: 2.5rem;
+                transition: right 0.4s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero-image {
+                height: 350px;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .showcase-image {
+                height: 350px;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .hero, .services, .process, .showcase, .cta-section {
+                padding: 3.5rem 5%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
             <div class="logo">
-              <img src="images/image.png" alt="Webphorce Logo" class="logo-img">
-                <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650'%3E%3Crect width='1000' height='650' fill='%23f5f5f5'/%3E%3Ccircle cx='200' cy='325' r='140' fill='none' stroke='%230a2540' stroke-width='20'/%3E%3Ctext x='150' y='360' font-family='Arial, sans-serif' font-size='160' font-weight='bold' fill='%230a2540'%3EW%3C/text%3E%3Ctext x='200' y='360' font-family='Arial, sans-serif' font-size='160' font-weight='bold' fill='%23ff9933'%3EP%3C/text%3E%3Ctext x='380' y='360' font-family='Arial, sans-serif' font-size='120' font-weight='bold' fill='%230a2540'%3EWEBPHORCE%3C/text%3E%3C/svg%3E" alt="Webphorce Logo" class="logo-img"> -->
+                <img src="images/image.png" alt="WebPhforce Logo">
             </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
+            <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="cta-btn">Let's Talk</a></li>
             </ul>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu Toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
             </button>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Transform Your Digital Presence</h1>
-            <p>We combine creativity, technology, and data-driven strategies to deliver solutions that drive measurable results</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="cta-button">Get Started Today</a>
-                <a href="#services" class="cta-button-outline">Explore Services</a>
-            </div>
-        </div>
-    </section>
-
-   
-<section class="services" id="services">
-    <div class="section-header">
-        <h2>What we do best</h2>
-        <p>We combine creativity with technical expertise to deliver results that matter.</p>
-    </div>
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="service-number">01</div>
-            <h3>Brand Identity</h3>
-            <p>Creating distinctive visual identities that capture the essence of your brand and resonate with your audience.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-number">02</div>
-            <h3>Web Design</h3>
-            <p>Designing beautiful, intuitive websites that convert visitors into customers and provide exceptional user experiences.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-number">03</div>
-            <h3>Development</h3>
-            <p>Building fast, scalable, and secure web applications using modern frameworks and best practices.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-number">04</div>
-            <h3>Strategy</h3>
-            <p>Developing data-driven marketing strategies that grow your business and achieve measurable results.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-number">05</div>
-            <h3>Content</h3>
-            <p>Producing engaging content that tells your story and connects with your audience across all platforms.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-number">06</div>
-            <h3>Consulting</h3>
-            <p>Providing expert guidance on digital transformation, tech stack decisions, and growth initiatives.</p>
-        </div>
-    </div>
-</section>
-<section class="marquee-section">
-    <div class="marquee">
-        <span>DESIGN • DEVELOP • DEPLOY • DESIGN • DEVELOP • DEPLOY • </span>
-        <span>DESIGN • DEVELOP • DEPLOY • DESIGN • DEVELOP • DEPLOY • </span>
-    </div>
-</section>
-
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <!-- You can replace this with a real image of your team or office -->
-                </div>
-                <div class="about-content">
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">From Idea to Impact</h2>
-                    <p>Webphorce wasn't born in a boardroom. It was born from a shared passion for building things that matter. We saw a gap between brilliant ideas and the digital execution needed to bring them to life. We're a collective of developers, designers, and strategists who believe technology should be an empowering tool, not a barrier.</p>
-                    <p>Our philosophy is simple: <strong>listen first, build second.</strong> We dive deep into your world to understand your challenges and goals, becoming a true extension of your team.</p>
-                    <ul class="core-values">
-                        <li><span>✓</span> Partnership Over Transactions</li>
-                        <li><span>✓</span> Clarity Through Simplicity</li>
-                        <li><span>✓</span> Driven by Tangible Results</li>
-                    </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>We build <span class="highlight">digital experiences</span> that people actually enjoy using</h1>
+                <p>A small digital agency creating websites, apps, and brands for businesses that want to stand out. No corporate fluff, just honest work that gets results.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="primary-btn" style="text-decoration: none;">Start a Project</a>
+                    <a href="portfolio.html" class="secondary-btn" style="text-decoration: none;">See Our Work</a>
                 </div>
             </div>
-        </div>
-    </section>
-<!-- 
-    <section class="why-choose">
-        <div class="container">
-            <h2 class="section-title">Why Choose Webphorce</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">⭐</div>
-                    <h4>Experienced Team</h4>
-                    <p>Our diverse team brings together experts in development, design, marketing, and AI with over 50 years of combined experience delivering exceptional digital solutions</p>
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="Team brainstorming session">
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h4>Tailored Solutions</h4>
-                    <p>No two businesses are alike. We create custom strategies specifically designed to meet your unique goals, challenges, and budget requirements</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📈</div>
-                    <h4>Results-Driven</h4>
-                    <p>We don't just make promises—we deliver measurable outcomes. Our track record includes increasing client revenue by an average of 150% within the first year</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💡</div>
-                    <h4>Innovation First</h4>
-                    <p>We stay ahead of industry trends, constantly evolving our services to incorporate the latest technologies and methodologies for maximum competitive advantage</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">Meet Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-photo">👨‍💼</div>
-                    <div class="team-info">
-                        <h3>John Doe</h3>
-                        <p class="team-role">CEO & Founder</p>
-                        <p>Visionary leader with 10+ years of experience in digital transformation, bridging the gap between innovative technology and business success.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-photo">👩‍💻</div>
-                    <div class="team-info">
-                        <h3>Jane Smith</h3>
-                        <p class="team-role">Lead Developer</p>
-                        <p>Full-stack developer specializing in React, Node.js, and cloud architecture, with experience building applications for clients across various industries.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-photo">👨‍🎨</div>
-                    <div class="team-info">
-                        <h3>Alex Johnson</h3>
-                        <p class="team-role">Creative Director</p>
-                        <p>Award-winning designer with a passion for creating memorable brand experiences and work featured in international design publications.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-photo">👩‍💼</div>
-                    <div class="team-info">
-                        <h3>Emily White</h3>
-                        <p class="team-role">Marketing Strategist</p>
-                        <p>Data-driven marketer who has helped brands achieve significant ROI increases through social media marketing and conversion optimization.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-photo">👨‍💻</div>
-                    <div class="team-info">
-                        <h3>Chris Green</h3>
-                        <p class="team-role">SEO Specialist</p>
-                        <p>An SEO wizard who turns websites into traffic magnets, consistently placing clients on the first page of major search engines.</p>
-                    </div>
+                <div class="floating-badge">
+                    <h4>150+ Projects</h4>
+                    <p>Since 2024</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Ready to transform your digital presence? Fill out the form below and our team will get back to you within 24 hours.</p>
-            <div class="contact-wrapper">
-                <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="you@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Web Development">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Send Message</button>
-                        <div class="form-message" id="formMessage"></div>
-                </form>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5 Years</div>
+                <div class="stat-label">In Business</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12 Days</div>
+                <div class="stat-label">Avg Response Time</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Return Rate</div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>What we're good at</h2>
+                <p>We're a small team that focuses on doing a few things really well instead of trying to do everything.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Web Design & Development</h3>
+                    <p>We build beautiful, high-performance websites that are tailored to your brand and designed to convert visitors into customers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Strategic campaigns that build your brand and engage your audience. We manage your presence and create content that drives results.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI/ML Solutions</h3>
+                    <p>Leverage artificial intelligence to solve business challenges. We build custom machine learning models to unlock data-driven insights.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>SaaS Products</h3>
+                    <p>From idea to launch, we design, build, and scale robust Software-as-a-Service products that your users will love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="process-container">
+            <div class="section-header">
+                <h2>How we work together</h2>
+                <p>No complicated agency processes. Just four straightforward steps from idea to launch.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery Call</h4>
+                    <p>We hop on a call to understand your goals, challenges, and what success looks like for you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Design Phase</h4>
+                    <p>We create mockups and prototypes. You give feedback. We refine until it's exactly right.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Development</h4>
+                    <p>We build everything properly—clean code, fast loading, mobile-friendly, and accessible.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Launch & Support</h4>
+                    <p>We launch your project and stick around to make sure everything runs smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase" id="work">
+        <div class="showcase-container">
+            <div class="showcase-header">
+                <h2>Recent projects we're proud of</h2>
+                <p>Real work from real clients. No concept designs or made-up case studies.</p>
+            </div>
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1400&h=600&fit=crop" alt="Project showcase">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Let's build something together</h2>
+            <p>We're always looking for interesting projects to work on. Whether you have a detailed plan or just an idea, let's talk about it.</p>
+            <a href="contact.html" class="primary-btn" style="font-size: 1.05rem; padding: 1.2rem 2.8rem; text-decoration: none;">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <img src="images/image.png" alt="Webphorce Logo" class="footer-logo-img">
-                    <p>Transforming businesses through innovative digital solutions. We combine creativity, technology, and strategy to deliver measurable results.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li>Web Development</li>
-                        <li>Brand Identity</li>
-                        <li>Digital Strategy</li>
-                        <li>Content Creation</li>
-                    </ul>
-                </div>
-                <div class="footer-connect">
-                    <h4>Connect With Us</h4>
-                    <div class="social-icons">
-                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">📘</a>
-                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">🐦</a>
-                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">💼</a>
-                        <a href="#" style="color: white; opacity: 0.9; transition: opacity 0.3s;">📷</a>
-                    </div>
-                </div>
+            <div class="footer-brand">
+                <h3>WebPhorce</h3>
+                <p>A digital agency helping businesses grow online. Based in Lagos, working with clients worldwide.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Webphorce. All rights reserved. | Transform Your Digital Presence</p>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Web Development</a></li>
+                    <li><a href="#services">Mobile Apps</a></li>
+                    <li><a href="#services">Brand Design</a></li>
+                    <li><a href="#services">Digital Marketing</a></li>
+                </ul>
             </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="webphorce/blog.html">Blog</a></li>
+                    <li><a href="webphorce/casestudy.html">Case Studies</a></li>
+                    <li><a href="webphorce/consultation.html">Free Consultation</a></li>
+                    <li><a href="webphorce/faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 WebPhforce. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Shrink nav on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
-</html>
+</html>**

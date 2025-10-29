@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - WebPhforce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5.5rem 6%;
+            background: #fafafa;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .faq-header h1 {
+            font-size: 2.8rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .faq-header p {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Category Tabs */
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 0.7rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.2s;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            background: #f7941d;
+            color: white;
+            border-color: #f7941d;
+        }
+
+        /* FAQ Items */
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: #f7941d;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            user-select: none;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: #153e5c;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            background: #fff4ed;
+            color: #f7941d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: #f7941d;
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem 2rem;
+        }
+
+        .faq-answer p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .faq-answer ul {
+            margin: 1rem 0 1rem 1.5rem;
+            color: #64748b;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Still Have Questions CTA */
+        .faq-cta {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-cta h2 {
+            font-size: 2rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .faq-cta p {
+            color: #64748b;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-btn {
+            background: #f7941d;
+            color: white;
+            padding: 1.1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .contact-btn:hover {
+            background: #e07d0a;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 968px) {
+            .faq-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .faq-question {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 1.5rem 1.2rem 1.5rem;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h1>Frequently Asked Questions</h1>
+                <p>Got questions? We've got answers. If you don't see what you're looking for, just reach out.</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="faq-categories">
+                <button class="category-tab active" data-category="all">All Questions</button>
+                <button class="category-tab" data-category="pricing">Pricing</button>
+                <button class="category-tab" data-category="process">Process</button>
+                <button class="category-tab" data-category="technical">Technical</button>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="faq-list">
+                <!-- General Questions -->
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>How long does a typical project take?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It depends on what we're building, but here are some rough timelines:</p>
+                        <ul>
+                            <li>Simple website: 2-4 weeks</li>
+                            <li>E-commerce store: 4-8 weeks</li>
+                            <li>Mobile app: 8-16 weeks</li>
+                            <li>Custom web application: 12-24 weeks</li>
+                        </ul>
+                        <p>We'll give you a more specific timeline during our initial consultation once we understand your requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="pricing">
+                    <div class="faq-question">
+                        <h3>How much does a website cost?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Honest answer: it varies widely based on what you need. A simple 5-page website might start around ₦500,000, while a complex e-commerce platform could be ₦3,000,000+.</p>
+                        <p>We don't do one-size-fits-all pricing because every project is different. After understanding your needs, we'll give you a transparent quote with no hidden fees.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="process">
+                    <div class="faq-question">
+                        <h3>What's your design and development process?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We keep it simple and collaborative:</p>
+                        <ul>
+                            <li><strong>Discovery:</strong> We learn about your business, goals, and audience</li>
+                            <li><strong>Strategy:</strong> We plan the features, structure, and approach</li>
+                            <li><strong>Design:</strong> We create mockups and prototypes for your feedback</li>
+                            <li><strong>Development:</strong> We build everything properly with clean code</li>
+                            <li><strong>Testing:</strong> We make sure everything works perfectly</li>
+                            <li><strong>Launch:</strong> We go live and monitor closely</li>
+                        </ul>
+                        <p>You're involved throughout the process, with regular check-ins and updates.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="pricing">
+                    <div class="faq-question">
+                        <h3>Do you offer payment plans?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We understand not everyone can pay everything upfront. We typically structure payments like this:</p>
+                        <ul>
+                            <li>50% upfront to start the project</li>
+                            <li>25% at the midpoint (when design is approved)</li>
+                            <li>25% before launch</li>
+                        </ul>
+                        <p>For larger projects, we can discuss custom payment schedules that work for your budget.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <h3>Will my website be mobile-friendly?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Every website we build is fully responsive, meaning it looks great and works perfectly on phones, tablets, and desktops. In fact, we often design mobile-first since most people browse on their phones these days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="process">
+                    <div class="faq-question">
+                        <h3>Can I update the website myself after it's built?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We build most websites on user-friendly platforms like WordPress or Webflow so you can easily update content, add blog posts, or change images without touching code.</p>
+                        <p>We also provide training and documentation so you feel confident making updates. And if you ever get stuck, we're just a message away.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <h3>Do you provide hosting and domain services?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We can help you set up hosting and a domain, and we'll recommend reliable providers. Most clients prefer to own their hosting account directly (which we think is best practice), but we can manage it for you if you prefer.</p>
+                        <p>Typical hosting costs are ₦20,000-₦100,000 per year depending on your needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="pricing">
+                    <div class="faq-question">
+                        <h3>What's included in your pricing?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our quotes typically include:</p>
+                        <ul>
+                            <li>Design and development</li>
+                            <li>Mobile responsiveness</li>
+                            <li>SEO basics (meta tags, fast loading, etc.)</li>
+                            <li>Security setup</li>
+                            <li>Training on how to use your site</li>
+                            <li>30 days of free support after launch</li>
+                        </ul>
+                        <p>Things like ongoing maintenance, hosting, and domain registration are separate but we're transparent about all costs upfront.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="process">
+                    <div class="faq-question">
+                        <h3>What if I don't like the design?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We include revision rounds in every project. If you're not happy with the initial designs, we'll keep refining until we get it right. Our goal is to create something you love, not just something that's "good enough."</p>
+                        <p>That said, we do our best to nail it early by spending time understanding your brand and preferences upfront.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <h3>Will my website be optimized for Google?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Every website we build follows SEO best practices: fast loading speeds, clean code, proper meta tags, mobile optimization, and good site structure.</p>
+                        <p>For clients who want to rank competitively, we also offer ongoing SEO services including content strategy, link building, and technical optimization.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>Do you work with clients outside Nigeria?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We've worked with clients across Africa, Europe, and North America. Time zones have never been an issue—we're flexible and make sure communication stays smooth no matter where you are.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>What happens after my website launches?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After launch, you get 30 days of free support for any bugs or tweaks. After that, you can manage the site yourself, or we offer monthly maintenance plans starting at ₦50,000/month.</p>
+                        <p>Many clients stick with us for ongoing updates, security monitoring, backups, and optimization—but it's totally optional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="faq-cta">
+                <h2>Still have questions?</h2>
+                <p>We're here to help. Book a free consultation or send us a message—no commitment required.</p>
+                <a href="#" class="contact-btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Category filtering
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+                
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter FAQ items
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - WebPhforce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: white;
+        }
+
+        /* Case Studies Section */
+        .case-studies-section {
+            padding: 5.5rem 6%;
+            background: #fafafa;
+        }
+
+        .case-studies-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .case-studies-header {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .case-studies-header h1 {
+            font-size: 2.8rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .case-studies-header p {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.7rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: #f7941d;
+            color: white;
+            border-color: #f7941d;
+        }
+
+        /* Case Study Cards */
+        .case-study-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .case-study-card:hover {
+            box-shadow: 0 12px 35px rgba(247, 148, 29, 0.12);
+            border-color: #f7941d;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .case-study-image {
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .case-study-card:hover .case-study-image img {
+            transform: scale(1.05);
+        }
+
+        .case-study-info {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-study-tags {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .case-study-tag {
+            padding: 0.4rem 1rem;
+            background: #fff4ed;
+            color: #f7941d;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .case-study-info h2 {
+            font-size: 2rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .case-study-info .client-name {
+            font-size: 0.95rem;
+            color: #f7941d;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .case-study-info p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f7941d;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .view-case-study {
+            background: #f7941d;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .view-case-study:hover {
+            background: #e07d0a;
+            transform: translateY(-2px);
+        }
+
+        /* Reverse layout for alternating cards */
+        .case-study-card:nth-child(even) .case-study-content {
+            direction: rtl;
+        }
+
+        .case-study-card:nth-child(even) .case-study-info {
+            direction: ltr;
+        }
+
+        @media (max-width: 968px) {
+            .case-study-content {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-image {
+                min-height: 300px;
+            }
+
+            .case-study-card:nth-child(even) .case-study-content {
+                direction: ltr;
+            }
+
+            .case-studies-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .case-study-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="case-studies-section">
+        <div class="case-studies-container">
+            <div class="case-studies-header">
+                <h1>Case Studies</h1>
+                <p>Real projects, real results. See how we've helped businesses like yours grow and succeed online.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active">All Projects</button>
+                <button class="filter-tab">Web Development</button>
+                <button class="filter-tab">Mobile Apps</button>
+                <button class="filter-tab">E-commerce</button>
+                <button class="filter-tab">Branding</button>
+            </div>
+
+            <!-- Case Study 1 -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="E-commerce project">
+                    </div>
+                    <div class="case-study-info">
+                        <div class="case-study-tags">
+                            <span class="case-study-tag">E-commerce</span>
+                            <span class="case-study-tag">Web Development</span>
+                        </div>
+                        <h2>Fashion E-commerce Platform That Increased Sales by 240%</h2>
+                        <p class="client-name">Client: StyleHub Nigeria</p>
+                        <p>StyleHub came to us with an outdated website that was losing customers. We built them a modern, mobile-first e-commerce platform with seamless checkout and inventory management.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">240%</div>
+                                <div class="stat-label">Sales Increase</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">3.5x</div>
+                                <div class="stat-label">More Traffic</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">Mobile Users</div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="view-case-study">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop" alt="Mobile app project">
+                    </div>
+                    <div class="case-study-info">
+                        <div class="case-study-tags">
+                            <span class="case-study-tag">Mobile App</span>
+                            <span class="case-study-tag">UI/UX Design</span>
+                        </div>
+                        <h2>Fitness App Connecting 50,000+ Users in 6 Months</h2>
+                        <p class="client-name">Client: FitConnect</p>
+                        <p>FitConnect needed a mobile app to bring their fitness community online. We designed and built an iOS and Android app that makes tracking workouts and connecting with trainers effortless.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">50K+</div>
+                                <div class="stat-label">Active Users</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.8★</div>
+                                <div class="stat-label">App Store Rating</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">6 Mo</div>
+                                <div class="stat-label">Launch Time</div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="view-case-study">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Branding project">
+                    </div>
+                    <div class="case-study-info">
+                        <div class="case-study-tags">
+                            <span class="case-study-tag">Branding</span>
+                            <span class="case-study-tag">Web Design</span>
+                        </div>
+                        <h2>Complete Rebrand for Growing Tech Startup</h2>
+                        <p class="client-name">Client: CloudSync Solutions</p>
+                        <p>CloudSync was struggling with a dated brand that didn't reflect their innovative products. We created a fresh brand identity and website that helped them stand out in a crowded market.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">300%</div>
+                                <div class="stat-label">Brand Awareness</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">180%</div>
+                                <div class="stat-label">Lead Generation</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">95%</div>
+                                <div class="stat-label">Client Satisfaction</div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="view-case-study">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 4 -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" alt="Website redesign project">
+                    </div>
+                    <div class="case-study-info">
+                        <div class="case-study-tags">
+                            <span class="case-study-tag">Web Development</span>
+                            <span class="case-study-tag">SEO</span>
+                        </div>
+                        <h2>Restaurant Website That Doubled Online Orders</h2>
+                        <p class="client-name">Client: Taste of Lagos</p>
+                        <p>A local restaurant chain needed a website that actually brought customers in the door. We built a fast, SEO-optimized site with online ordering that transformed their business.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">200%</div>
+                                <div class="stat-label">Online Orders</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">#1</div>
+                                <div class="stat-label">Google Ranking</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4 Wk</div>
+                                <div class="stat-label">Project Time</div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="view-case-study">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                // Add your filter logic here
+            });
+        });
+    </script>
+</body>
+</html>

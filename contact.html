@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - WebPhorce</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #1e293b; background: #fafafa; }
+        /* Shared Styles */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); z-index: 1000; padding: 1.3rem 6%; border-bottom: 1px solid rgba(21, 62, 92, 0.1); transition: padding 0.3s ease-in-out; }
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; width: auto; }
+        .nav-links { display: flex; gap: 2.8rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #334155; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #f7941d; }
+        .cta-btn { background: #f7941d; color: white !important; padding: 0.75rem 1.8rem; border-radius: 8px; font-weight: 600; transition: all 0.2s; }
+        .cta-btn:hover { background: #e07d0a; transform: translateY(-1px); }
+        .mobile-toggle { display: none; flex-direction: column; justify-content: space-around; width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1001; }
+        .mobile-toggle span { width: 28px; height: 3px; background-color: #153e5c; border-radius: 10px; transition: all 0.3s ease-in-out; }
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        footer { background: #153e5c; color: white; padding: 4rem 6% 2rem; }
+        .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand h3 { font-size: 1.6rem; margin-bottom: 0.8rem; color: #f7941d; font-weight: 700; }
+        .footer-brand p { color: #94a3b8; line-height: 1.6; font-size: 0.95rem; }
+        .footer-links h4 { margin-bottom: 1.2rem; color: white; font-weight: 600; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.7rem; transition: color 0.2s; font-size: 0.95rem; }
+        .footer-links a:hover { color: #f7941d; }
+        .footer-bottom { max-width: 1300px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; color: #94a3b8; font-size: 0.9rem; }
+        .primary-btn { background: #f7941d; color: white; padding: 1.1rem 2.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .primary-btn:hover { background: #e07d0a; transform: translateY(-2px); }
+
+        /* Page-specific Styles */
+        .page-header { padding: 10rem 6% 5rem; background: #153e5c; text-align: center; }
+        .page-header h1 { font-size: 3rem; color: white; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.15rem; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
+
+        .contact-section { padding: 5.5rem 6%; background: white; }
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+        .contact-info h3 { font-size: 1.8rem; color: #153e5c; margin-bottom: 1.5rem; }
+        .contact-info p { color: #64748b; margin-bottom: 2rem; }
+        .contact-details { list-style: none; }
+        .contact-details li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; color: #334155; }
+        .contact-details .icon { font-size: 1.5rem; color: #f7941d; }
+
+        .contact-form { background: #fafafa; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #153e5c; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+
+        @media (max-width: 968px) {
+            .nav-links { position: fixed; top: 73px; right: -100%; width: 80%; height: calc(100vh - 73px); background: white; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 3rem; gap: 2.5rem; transition: right 0.4s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+            .nav-links.active { right: 0; }
+            .mobile-toggle { display: flex; }
+            .footer-container { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/image.png" alt="WebPhforce Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html" class="cta-btn">Let's Talk</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h1>Get in Touch</h1>
+            <p>Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or use our contact details below.</p>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>We're available from 9 AM to 5 PM, Monday to Friday.</p>
+                    <ul class="contact-details">
+                        <li><span class="icon">📧</span> <span>hello@webphorce.com</span></li>
+                        <li><span class="icon">📞</span> <span>+234 801 234 5678</span></li>
+                        <li><span class="icon">📍</span> <span>123 Digital Avenue, Lagos, Nigeria</span></li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="primary-btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>WebPhorce</h3>
+                <p>A digital agency helping businesses grow online. Based in Lagos, working with clients worldwide.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Web Development</a></li>
+                    <li><a href="index.html#services">Mobile Apps</a></li>
+                    <li><a href="index.html#services">Brand Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="casestudy.html">Case Studies</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 WebPhforce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
