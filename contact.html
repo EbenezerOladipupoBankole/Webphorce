@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - WebPhorce</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #1e293b; background: #fafafa; }
@@ -38,31 +39,95 @@
         .page-header h1 { font-size: 3rem; color: white; margin-bottom: 1rem; }
         .page-header p { font-size: 1.15rem; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
 
-        .contact-section { padding: 5.5rem 6%; background: white; }
-        .contact-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: flex-start;
+        .contact-section { 
+            padding: 5.5rem 6%; 
+            background: white; 
         }
-        .contact-info h3 { font-size: 1.8rem; color: #153e5c; margin-bottom: 1.5rem; }
-        .contact-info p { color: #64748b; margin-bottom: 2rem; }
-        .contact-details { list-style: none; }
-        .contact-details li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; color: #334155; }
-        .contact-details .icon { font-size: 1.5rem; color: #f7941d; }
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fafafa;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 3rem;
+        }
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .booking-step h3 {
+            font-size: 1.5rem;
+            color: #153e5c;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .time-slots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .time-slot {
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .time-slot:hover {
+            border-color: #f7941d;
+            color: #f7941d;
+        }
+        .time-slot.selected {
+            background: #f7941d;
+            color: white;
+            border-color: #f7941d;
+        }
+        .time-slot.disabled {
+            background: #f1f5f9;
+            color: #94a3b8;
+            cursor: not-allowed;
+            border-color: #e2e8f0;
+        }
+        #timeSlotsContainer {
+            display: none;
+        }
 
-        .contact-form { background: #fafafa; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
+        /* Flatpickr Customization */
+        .flatpickr-calendar {
+            width: 100% !important;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+        .flatpickr-day.selected {
+            background: #f7941d;
+            border-color: #f7941d;
+        }
+        .flatpickr-day:hover {
+            background: #fff4ed;
+        }
+        .flatpickr-day.today {
+            border-color: #f7941d;
+        }
+
+        /* Form Step */
+        #formStep { display: none; }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #153e5c; }
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 0.9rem 1rem;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-size: 1rem;
             font-family: inherit;
+            background: white;
         }
         .form-group textarea { min-height: 120px; resize: vertical; }
 
@@ -71,7 +136,7 @@
             .nav-links.active { right: 0; }
             .mobile-toggle { display: flex; }
             .footer-container { grid-template-columns: 1fr; }
-            .contact-container { grid-template-columns: 1fr; }
+            .booking-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -97,41 +162,46 @@
 
     <main>
         <section class="page-header">
-            <h1>Get in Touch</h1>
-            <p>Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or use our contact details below.</p>
+            <h1>Book a Free Consultation</h1>
+            <p>Find a time that works for you. Let's talk about your project, goals, and how we can help you succeed. No pressure, just honest advice.</p>
         </section>
 
         <section class="contact-section">
             <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>We're available from 9 AM to 5 PM, Monday to Friday.</p>
-                    <ul class="contact-details">
-                        <li><span class="icon">📧</span> <span>hello@webphorce.com</span></li>
-                        <li><span class="icon">📞</span> <span>+234 801 234 5678</span></li>
-                        <li><span class="icon">📍</span> <span>123 Digital Avenue, Lagos, Nigeria</span></li>
-                    </ul>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
+                <div class="booking-grid">
+                    <!-- Step 1: Date & Time -->
+                    <div id="dateTimeStep">
+                        <h3>1. Select a Date & Time</h3>
+                        <div class="booking-grid">
+                            <div id="calendar"></div>
+                            <div id="timeSlotsContainer">
+                                <p id="selectedDate" style="font-weight: 600; margin-bottom: 1rem;"></p>
+                                <div class="time-slots" id="timeSlots">
+                                    <!-- Time slots will be generated by JS -->
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="primary-btn" style="width: 100%;">Send Message</button>
-                    </form>
+                    </div>
+
+                    <!-- Step 2: Form -->
+                    <div id="formStep">
+                        <h3>2. Your Details</h3>
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Tell us about your project</label>
+                                <textarea id="message" name="message" required placeholder="What are you trying to achieve?"></textarea>
+                            </div>
+                            <button type="submit" class="primary-btn" style="width: 100%;">Confirm Booking</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -175,12 +245,61 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.querySelector('.nav-links');
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileToggle.classList.toggle('active');
+        });
+
+        // Booking Logic
+        const dateTimeStep = document.getElementById('dateTimeStep');
+        const formStep = document.getElementById('formStep');
+        const timeSlotsContainer = document.getElementById('timeSlotsContainer');
+        const timeSlotsDiv = document.getElementById('timeSlots');
+        const selectedDateP = document.getElementById('selectedDate');
+
+        const availableTimes = ["09:00 AM", "10:00 AM", "11:00 AM", "01:00 PM", "02:00 PM", "03:00 PM"];
+
+        const fp = flatpickr("#calendar", {
+            inline: true,
+            minDate: "today",
+            dateFormat: "F j, Y",
+            onChange: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length > 0) {
+                    timeSlotsContainer.style.display = 'block';
+                    selectedDateP.textContent = `Available times for ${dateStr}`;
+                    generateTimeSlots();
+                }
+            }
+        });
+
+        function generateTimeSlots() {
+            timeSlotsDiv.innerHTML = '';
+            availableTimes.forEach(time => {
+                const slot = document.createElement('button');
+                slot.className = 'time-slot';
+                slot.textContent = time;
+                slot.onclick = () => selectTime(slot);
+                timeSlotsDiv.appendChild(slot);
+            });
+        }
+
+        function selectTime(selectedSlot) {
+            // Remove 'selected' from any other slot
+            document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+            // Add 'selected' to the clicked slot
+            selectedSlot.classList.add('selected');
+            // Show the form
+            formStep.style.display = 'block';
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your consultation is booked. We will send a confirmation email shortly.');
+            location.reload(); // Reset the form
         });
     </script>
 </body>
